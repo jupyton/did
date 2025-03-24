@@ -1,0 +1,27 @@
+{
+  "id": "did:web:jupyton.github.io:did:2",
+  "verificationMethod": [
+    {
+      "type": "Bls12381G2Key2020",
+      "id": "did:web:jupyton.github.io:did:2#keys-1",
+      "controller": "did:web:jupyton.github.io:did:2",
+      "publicKeyBase58": "22dxtCpLzqJS8zptmxUw36NMYEaEGAo4sqE4Znm2NFM1S5NqwqWGry3Q3ms7BHKcSP6yaN3zr5kJgf5CF5ojrpthWCxzXfN3ZwA52T4UtTPmFVygQfeyWVi6UV9b9tzdssc4"
+    }
+  ],
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/bls12381-2020/v1"
+  ],
+  "authentication": [
+    "did:web:jupyton.github.io:did:2#keys-1"
+  ],
+  "assertionMethod": [
+    "did:web:jupyton.github.io:did:2#keys-1"
+  ],
+  "capabilityInvocation": [
+    "did:web:jupyton.github.io:did:2#keys-1"
+  ],
+  "capabilityDelegation": [
+    "did:web:jupyton.github.io:did:2#keys-1"
+  ]
+}
