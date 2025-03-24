@@ -1,0 +1,27 @@
+{
+  "id": "did:web:afaa-118-189-65-170.ngrok-free.app",
+  "verificationMethod": [
+    {
+      "type": "Bls12381G2Key2020",
+      "id": "did:web:afaa-118-189-65-170.ngrok-free.app#keys-1",
+      "controller": "did:web:afaa-118-189-65-170.ngrok-free.app",
+      "publicKeyBase58": "nd4KJfK2Dy9UjbHnr2eji7yGpef2TnL8iuQC3iKRP6wCc2vejb9f2VWgP9QMC5AUpY4n4tUFQRgy5vKFw7q6Y4XfHW4zLTyic1AnyCKbA2S8APqK8Unkf2vsqAXZdnRRkNW"
+    }
+  ],
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/bls12381-2020/v1"
+  ],
+  "authentication": [
+    "did:web:afaa-118-189-65-170.ngrok-free.app#keys-1"
+  ],
+  "assertionMethod": [
+    "did:web:afaa-118-189-65-170.ngrok-free.app#keys-1"
+  ],
+  "capabilityInvocation": [
+    "did:web:afaa-118-189-65-170.ngrok-free.app#keys-1"
+  ],
+  "capabilityDelegation": [
+    "did:web:afaa-118-189-65-170.ngrok-free.app#keys-1"
+  ]
+}
