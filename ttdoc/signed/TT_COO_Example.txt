@@ -1,0 +1,15 @@
+https://ref.tradetrust.io/?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fgallery.openattestation.com%2Fstatic%2Fdocuments%2Ftradetrust%2Fv2%2Febl-stability.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fref.tradetrust.io%22%2C%22chainId%22%3A101010%7D%7D
+
+https://ref.tradetrust.io/?q={"type":"DOCUMENT","payload":{"uri":"https://gallery.openattestation.com/static/documents/tradetrust/v2/ebl-stability.json","permittedActions":["VIEW"],"redirect":"https://ref.tradetrust.io","chainId":101010}}
+
+https://ref.tradetrust.io/?q={
+  "type":"DOCUMENT",
+  "payload":{
+    "uri":"https://gallery.openattestation.com/static/documents/tradetrust/v2/ebl-stability.json",
+    "permittedActions":["VIEW"],
+    "redirect":"https://ref.tradetrust.io",
+    "chainId":101010
+  }
+}
+
+https://gallery.openattestation.com/static/documents/tradetrust/v2/ebl-stability.json
