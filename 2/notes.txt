@@ -1,4 +1,5 @@
 sepolia
+TOKEN_REGISTRY_ADDRESS="0x5270973D5D415334174aB7Cd078aCb4E4c122058"
 
 for
 - bill_of_lading_0324A_signed.json
