@@ -1,6 +1,22 @@
 stabilitytestnet : 20180427
-
 TOKEN_REGISTRY_ADDRESS="0x10748Ea020C074b5A32d74bcEe2982032B96183d"
 
 for
-- 
+- bill_of_lading_0326A_signed_stability_testnet.json
+
+
+https://jupyton.github.io/did/2/did.json
+
+https://jupyton.github.io/did/ttdoc/signed/bill_of_lading_0326A_signed_stability_testnet.json
+
+https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fsigned%2Fbill_of_lading_0326A_signed_stability_testnet.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fv5-token-registry.dev.tradetrust.io%2F%22%2C%22chainId%22%3A%2220180427%22%7D%7D
+
+https://actions.tradetrust.io?q={
+  "type":"DOCUMENT",
+  "payload":{
+    "uri":"https://jupyton.github.io/did/ttdoc/signed/bill_of_lading_0326A_signed_stability_testnet.json",
+    "permittedActions":["VIEW"],
+    "redirect":"https://v5-token-registry.dev.tradetrust.io/",
+    "chainId":"20180427"
+  }
+}
