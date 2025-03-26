@@ -1,0 +1,22 @@
+sepolia
+TOKEN_REGISTRY_ADDRESS="0x5270973D5D415334174aB7Cd078aCb4E4c122058"
+
+for
+- bill_of_lading_0324A_signed.json
+
+
+https://jupyton.github.io/did/2/did.json
+
+https://jupyton.github.io/did/ttdoc/signed/ebl_0324A_signed.json
+
+https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fsigned%2Febl_0324A_signed.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fv5-token-registry.dev.tradetrust.io%2F%22%2C%22chainId%22%3A%2211155111%22%7D%7D
+
+https://actions.tradetrust.io?q={
+  "type":"DOCUMENT",
+  "payload":{
+    "uri":"https://jupyton.github.io/did/ttdoc/signed/ebl_0324A_signed.json",
+    "permittedActions":["VIEW"],
+    "redirect":"https://v5-token-registry.dev.tradetrust.io/",
+    "chainId":"11155111"
+  }
+}
