@@ -2,3 +2,7 @@ sepolia
 
 for
 - bill_of_lading_0324A_signed.json
+
+
+https://jupyton.github.io/did/2/did.json
+https://jupyton.github.io/did/ttdoc/signed/ebl_0324A_signed.json
