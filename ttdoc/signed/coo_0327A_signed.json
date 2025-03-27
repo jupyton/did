@@ -94,19 +94,19 @@
     "iD": "111",
     "links": {
       "self": {
-        "href": "https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fsigned%2Fcoo_0327A_signed.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fv5-token-registry.tradetrust.io%22%2C%22chainId%22%3A%2220180427%22%7D%7D%0A"
+        "href": "https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fsigned%2Fcoo_0327A_signed.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fv5-token-registry.dev.tradetrust.io%22%2C%22chainId%22%3A%2220180427%22%7D%7D%0A"
       }
     }
   },
-  "issuanceDate": "2025-03-27T07:54:30.064Z",
-  "expirationDate": "2025-06-27T07:54:30.064Z",
+  "issuanceDate": "2025-03-27T07:56:16.489Z",
+  "expirationDate": "2025-06-27T07:56:16.489Z",
   "issuer": "did:web:jupyton.github.io:did:2",
-  "id": "urn:bnid:_:0195d698-7341-7aaa-a7ae-7b4d0fe3e5c7",
+  "id": "urn:bnid:_:0195d69a-12f5-7337-af38-8ca133ad975c",
   "proof": {
     "type": "BbsBlsSignature2020",
-    "created": "2025-03-27T07:54:31Z",
+    "created": "2025-03-27T07:56:18Z",
     "proofPurpose": "assertionMethod",
-    "proofValue": "ti73weZ8Lbws34okLavAfI6cyhIf7Xg5xCwjA6bdfw5aP3WZN0LZWN1UoMtYjuRPYUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
+    "proofValue": "k+L0uN3NY/hNv0PT1XwhFjEWsntX5foCSSVzVk5xSyNzxH0xNbtjn0Rq7p6Dxz4AYUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
     "verificationMethod": "did:web:jupyton.github.io:did:2#keys-1"
   }
 }
