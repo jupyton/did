@@ -25,26 +25,26 @@
       },
       "exporter": {
         "postalAddress": {
-          "line1": "10 Pasir Panjang Road  #10-01 Mapletree Business City",
-          "postcode": "117438",
+          "line1": "79 Ayer Rajah Crescent, #01-03",
+          "postcode": "139955",
           "cityName": "Singapore",
           "countryCode": "65"
         },
-        "iD": "333",
-        "name": "John Doe"
+        "iD": "888",
+        "name": "Eric W"
       },
       "importCountry": {
         "code": "60"
       },
       "importer": {
         "postalAddress": {
-          "line1": "106 Blk F7 Seksyen 1 Bdr Baru Wangsa Maju Setapak",
+          "line1": "Block A1-15-5, Arcoris, No. 10 Jalan Kiara, Mont Kiara",
           "cityName": "Kuala Lumpur",
-          "postcode": "53300",
+          "postcode": "50480",
           "countryCode": "60"
         },
-        "iD": "444",
-        "name": "Alice Tan"
+        "iD": "333",
+        "name": "David C"
       },
       "loadingBaseportLocation": {
         "iD": "555",
@@ -98,15 +98,15 @@
       }
     }
   },
-  "issuanceDate": "2025-03-27T07:42:55.866Z",
-  "expirationDate": "2025-06-27T07:42:55.866Z",
+  "issuanceDate": "2025-03-27T07:54:30.064Z",
+  "expirationDate": "2025-06-27T07:54:30.064Z",
   "issuer": "did:web:jupyton.github.io:did:2",
-  "id": "urn:bnid:_:0195d68d-db8e-7448-856c-434386b43c5e",
+  "id": "urn:bnid:_:0195d698-7341-7aaa-a7ae-7b4d0fe3e5c7",
   "proof": {
     "type": "BbsBlsSignature2020",
-    "created": "2025-03-27T07:42:57Z",
+    "created": "2025-03-27T07:54:31Z",
     "proofPurpose": "assertionMethod",
-    "proofValue": "mBHc/e++w2ZCsTBLxu4cLTxxjIcQpcrjfkBtURPrmigZBCFuHhdc1ME7iOaJXkw3YUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
+    "proofValue": "ti73weZ8Lbws34okLavAfI6cyhIf7Xg5xCwjA6bdfw5aP3WZN0LZWN1UoMtYjuRPYUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
     "verificationMethod": "did:web:jupyton.github.io:did:2#keys-1"
   }
 }
