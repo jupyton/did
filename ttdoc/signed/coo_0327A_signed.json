@@ -1,1 +1,112 @@
-coo_0327A_signed.json
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/security/bbs/v1",
+    "https://trustvc.io/context/transferable-records-context.json",
+    "https://trustvc.io/context/render-method-context.json",
+    "https://trustvc.io/context/attachments-context.json",
+    "https://schemata.openattestation.com/io/tradetrust/certificate-of-origin/1.0/certificate-of-origin-context.json"
+  ],
+  "type": [
+    "VerifiableCredential"
+  ],
+  "renderMethod": [
+    {
+      "id": "https://generic-templates.tradetrust.io",
+      "type": "EMBEDDED_RENDERER",
+      "templateName": "CHAFTA_COO"
+    }
+  ],
+  "credentialSubject": {
+    "name": "TradeTrust ChAFTA Certificate of Origin v2",
+    "supplyChainConsignment": {
+      "exportCountry": {
+        "code": "65"
+      },
+      "exporter": {
+        "postalAddress": {
+          "line1": "10 Pasir Panjang Road  #10-01 Mapletree Business City",
+          "postcode": "117438",
+          "cityName": "Singapore",
+          "countryCode": "65"
+        },
+        "iD": "333",
+        "name": "John Doe"
+      },
+      "importCountry": {
+        "code": "60"
+      },
+      "importer": {
+        "postalAddress": {
+          "line1": "106 Blk F7 Seksyen 1 Bdr Baru Wangsa Maju Setapak",
+          "cityName": "Kuala Lumpur",
+          "postcode": "53300",
+          "countryCode": "60"
+        },
+        "iD": "444",
+        "name": "Alice Tan"
+      },
+      "loadingBaseportLocation": {
+        "iD": "555",
+        "name": "Some loading port name"
+      },
+      "mainCarriageTransportMovement": {
+        "usedTransportMeans": {
+          "name": "Van",
+          "iD": "777"
+        },
+        "departureEvent": {},
+        "iD": "666",
+        "information": "Some information here"
+      },
+      "unloadingBaseportLocation": {
+        "iD": "888",
+        "name": "Some unloading port name"
+      },
+      "iD": "222",
+      "information": "Consignment Information",
+      "includedConsignmentItems": []
+    },
+    "firstSignatoryAuthentication": {
+      "signature": "data:image/png;base64,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",
+      "actualDateTime": "2020-05-29T09:46:34Z",
+      "statement": "The undersigned hereby declares that the above-stated information is correct and that the goods exported to [importer] comply with the origin requirements specified in the China-Australia Free Trade Agreement."
+    },
+    "issueLocation": {
+      "iD": "unece.un.org:locode:AUADL",
+      "name": "Adelaide"
+    },
+    "issuer": {
+      "iD": "wfa.org.au",
+      "name": "Australian Grape and Wine Incorporated",
+      "postalAddress": {
+        "line1": "Level 1, Industry Offcies",
+        "line2": "Botanic Road",
+        "cityName": "Adelaide",
+        "postcode": "5000",
+        "countrySubDivisionName": "SA",
+        "countryCode": "AU"
+      }
+    },
+    "status": "issued",
+    "isPreferential": "true",
+    "freeTradeAgreement": "CHAFTA",
+    "iD": "111",
+    "links": {
+      "self": {
+        "href": "https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fsigned%2Fcoo_0327A_signed.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fref.tradetrust.io%22%2C%22chainId%22%3A%2220180427%22%7D%7D%0A"
+      }
+    }
+  },
+  "issuanceDate": "2025-03-27T07:34:11.402Z",
+  "expirationDate": "2025-06-27T07:34:11.402Z",
+  "issuer": "did:web:jupyton.github.io:did:2",
+  "id": "urn:bnid:_:0195d685-dad3-7005-b89b-a57bb9e3fd99",
+  "proof": {
+    "type": "BbsBlsSignature2020",
+    "created": "2025-03-27T07:34:13Z",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "gliVbcyyphQnGDfAhyX6Rc8Bc+uh16MpLuQqSJ4bLgMWzZMcG6bIYVqQVwKrdPYqYUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
+    "verificationMethod": "did:web:jupyton.github.io:did:2#keys-1"
+  }
+}
