@@ -98,15 +98,15 @@
       }
     }
   },
-  "issuanceDate": "2025-03-28T03:24:22.118Z",
-  "expirationDate": "2025-06-28T03:24:22.118Z",
+  "issuanceDate": "2025-03-28T03:30:44.414Z",
+  "expirationDate": "2025-06-28T03:30:44.414Z",
   "issuer": "did:web:jupyton.github.io:did:2",
-  "id": "urn:bnid:_:0195dac7-7efc-7aa1-92e9-b57e70bf3725",
+  "id": "urn:bnid:_:0195dacd-5453-7337-afa2-a243708c31ff",
   "proof": {
     "type": "BbsBlsSignature2020",
-    "created": "2025-03-28T03:24:23Z",
+    "created": "2025-03-28T03:30:45Z",
     "proofPurpose": "assertionMethod",
-    "proofValue": "q3q+YOlYnJEHHO8GbYsxLDZqtDIVWr32ozfBrTzhupNUgaHadlGZ5wKA9NK7wpcjYUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
+    "proofValue": "h5B/tdw8S8XUkGLFtHj6486GNUcKDhKQ6XR5WBcE/62hpOeBE3drWlMb54FP8tMSYUHlKfzccE4m7waZyoLEkBLFiK2g54Q2i+CdtYBgDdkUDsoULSBMcH1MwGHwdjfXpldFNFrHFx/IAvLVniyeMQ==",
     "verificationMethod": "did:web:jupyton.github.io:did:2#keys-1"
   }
 }
