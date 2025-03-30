@@ -8,5 +8,5 @@ A = active
 R = Revoked
 
 AAAA
-AABB
-BBBB
+AARR
+RRRR
