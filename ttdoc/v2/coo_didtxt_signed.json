@@ -2,108 +2,108 @@
     "version": "https://schema.openattestation.com/2.0/schema.json",
     "data": {
         "$template": {
-            "type": "bb12191e-864a-4d20-8a7f-6e794baa6885:string:EMBEDDED_RENDERER",
-            "name": "0731ab6f-3d70-4790-b229-55c6e1d0f4ab:string:CHAFTA_COO",
-            "url": "9a78b42d-6c87-47b0-9b21-88642d3be22f:string:https://generic-templates.tradetrust.io"
+            "type": "b8b8e701-453f-4dab-bb36-88534172ebf3:string:EMBEDDED_RENDERER",
+            "name": "33d6cba9-cd68-41d1-8072-3ef9c1c31a5f:string:CHAFTA_COO",
+            "url": "64da8597-c213-46d5-aed5-ba9336961499:string:https://generic-templates.tradetrust.io"
         },
         "issuers": [
             {
-                "name": "25f91010-38ae-4f8f-a1ca-4b3d92304e4e:string:Jupyton Sample DNS TXT Issuer",
-                "documentStore": "5a33a6e4-8fad-4deb-b0d8-1c991ec53b41:string:0xADc8296CDC6D5C8944031B661D497c01Da3b9C89",
+                "name": "ae5cb8c3-277b-47d1-bd2e-e2eb9c0c29db:string:Jupyton Sample DNS TXT Issuer",
+                "documentStore": "4dee7471-90cd-4c83-a9ab-23c820b20927:string:0xADc8296CDC6D5C8944031B661D497c01Da3b9C89",
                 "identityProof": {
-                    "type": "8671e6ed-668a-4ef8-bb5f-bc7ce4b9c8aa:string:DNS-TXT",
-                    "location": "da2d83be-a041-474a-93bf-3293779565d4:string:sample-dns.sandbox158.run"
+                    "type": "c2ea07ed-e926-46f3-88c2-904ab1d1e2db:string:DNS-TXT",
+                    "location": "c3634f52-904c-41ba-b558-adc414fd5465:string:sample-dns.sandbox158.run"
                 }
             }
         ],
-        "name": "7925627c-2000-4935-b0ca-8e3d39247d13:string:[J] TradeTrust ChAFTA Certificate of Origin v2",
-        "status": "7504a8a1-df3a-444c-b3b3-58f0d80455f9:string:[J] issued",
-        "isPreferential": "55c82932-2d55-4d34-ae03-0f8be65bfe02:string:true",
-        "freeTradeAgreement": "eae38acd-12d5-4d3d-927e-95e68011f57a:string:[J] CHAFTA",
-        "iD": "22aeacd1-0992-4dc6-bf6e-bd8f31bdb3ae:string:[J] 111",
+        "name": "04f2ffb5-45e1-4ed4-84f5-3463f01e8d24:string:[J] TradeTrust ChAFTA Certificate of Origin v2",
+        "status": "f2a38050-9ed6-4df6-8c83-aa7eb3c114c8:string:[J] issued",
+        "isPreferential": "762d26a9-9664-4ad4-941a-55fa654f6d52:string:true",
+        "freeTradeAgreement": "3815ea73-9400-4975-98c9-2a732409af03:string:[J] CHAFTA",
+        "iD": "94fb48c1-0d9c-4959-a394-e64b7cf74352:string:[J] 111",
         "links": {
             "self": {
-                "href": "5b46bd6d-f7eb-498c-8279-c0eefccf4084:string:https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fv2%2Fcoo_didtxt_signed.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fdev.tradetrust.io%2F%22%2C%22chainId%22%3A%2211155111%22%7D%7D"
+                "href": "d2a4d911-0b4c-4fee-bc48-f4f65efc2752:string:https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fttdoc%2Fv2%2Fcoo_didtxt_signed.json%22%2C%22permittedActions%22%3A%5B%22VIEW%22%5D%2C%22redirect%22%3A%22https%3A%2F%2Fdev.tradetrust.io%2F%22%2C%22chainId%22%3A%2211155111%22%7D%7D"
             }
         },
         "network": {
-            "chain": "7940fc1a-49a5-4427-8d33-ad2882067b94:string:ETH",
-            "chainId": "1121f00f-ce38-4fc1-96d3-b426d5581865:string:11155111"
+            "chain": "2ccd394b-1497-4101-80d3-d86c52a01da9:string:ETH",
+            "chainId": "a06f17f5-9bd2-474f-98bd-8b3a488a0d4b:string:11155111"
         },
         "supplyChainConsignment": {
             "exportCountry": {
-                "code": "44758ca0-2a0e-4c04-b659-ca196748b6c9:string:[J] 65"
+                "code": "301bdefe-6add-4060-bb32-6cb2e2316075:string:[J] 65"
             },
             "exporter": {
                 "postalAddress": {
-                    "line1": "e634dfbd-81f2-4c6b-82e4-81bd0024ca3d:string:[J] 10 Pasir Panjang Road  #10-01 Mapletree Business City",
-                    "postcode": "c4186378-f1e5-48c2-ae5e-8b1b9d87fa45:string:[J] 117438",
-                    "cityName": "b522c16b-d891-439a-bc0a-e5dea39d9892:string:[J] Singapore",
-                    "countryCode": "3466d091-457f-41fa-8f28-34dc29f6a6df:string:[J] 65"
+                    "line1": "980899e3-a1d6-45f4-9576-e705f71305d0:string:[J] 10 Pasir Panjang Road  #10-01 Mapletree Business City",
+                    "postcode": "ffd36617-2b45-4801-b739-37a5144c0d70:string:[J] 117438",
+                    "cityName": "a24d1b92-2b25-4cb9-8904-b61174b8eac5:string:[J] Singapore",
+                    "countryCode": "5f417ab8-59cd-48ba-b43c-50b41bfd8fef:string:[J] 65"
                 },
-                "iD": "cb45a312-613f-4650-a0af-39b02570efe5:string:[J] 333",
-                "name": "cf8f068c-e20b-4b1a-a35d-819341d76e54:string:[J] John Doe"
+                "iD": "8c7d5809-dbc5-4d1c-be3b-67dd199df38c:string:[J] 333",
+                "name": "bbb318c7-e4be-4646-af0b-629088472b14:string:[J] John Doe"
             },
             "importCountry": {
-                "code": "84338c3a-cb4b-48a6-8287-017b2c159299:string:[J] 60"
+                "code": "3269e23b-ff83-4bcf-9dda-830d82bfda6f:string:[J] 60"
             },
             "importer": {
                 "postalAddress": {
-                    "line1": "f84c4b82-5954-4a23-9514-5faa20c09a14:string:[J] 106 Blk F7 Seksyen 1 Bdr Baru Wangsa Maju Setapak",
-                    "cityName": "c1547d17-f682-4e5e-a265-db0e462de09f:string:[J] Kuala Lumpur",
-                    "postcode": "4802374f-7258-4de4-903a-759bca6f9063:string:[J] 53300",
-                    "countryCode": "aa554014-f77d-4600-a7bf-5f0089da69ea:string:[J] 60"
+                    "line1": "d6473c37-f57e-46d6-a902-47ca704acd6d:string:[J] 106 Blk F7 Seksyen 1 Bdr Baru Wangsa Maju Setapak",
+                    "cityName": "c8977d65-215e-4ea6-8f54-97cd32bfc61f:string:[J] Kuala Lumpur",
+                    "postcode": "cb5c4a63-aadf-4546-918b-794d0334ace5:string:[J] 53300",
+                    "countryCode": "0894ddc6-115f-445b-ac9f-481cb256462e:string:[J] 60"
                 },
-                "iD": "9dc58421-8260-413c-aab9-17d35a59a28d:string:[J] 444",
-                "name": "ad994909-4ff8-470b-b3bb-e1fca14485bf:string:[J] Alice Tan"
+                "iD": "7ca5046b-e025-4fce-b2fa-cf2efba749f1:string:[J] 444",
+                "name": "2e3f307b-6c97-4273-9625-c29131153db3:string:[J] Alice Tan"
             },
             "loadingBaseportLocation": {
-                "iD": "df0fc8cd-f8d5-4537-b962-35eb689dcb20:string:[J] 555",
-                "name": "eff8d274-9faf-410e-b924-31937567563f:string:[J] Some loading port name"
+                "iD": "03d6c486-9ae2-4cc7-9669-a05291340bf7:string:[J] 555",
+                "name": "2ab26881-57ae-4599-a6d5-88c52d67f4bb:string:[J] Some loading port name"
             },
             "mainCarriageTransportMovement": {
                 "usedTransportMeans": {
-                    "name": "7d51c171-2035-4408-996a-d16485fffd75:string:[J] Van",
-                    "iD": "8d441b03-0bb9-4b7f-827d-bcc32501b859:string:[J] 777"
+                    "name": "14519306-c4d2-4b6e-9b88-bb93c603d84d:string:[J] Van",
+                    "iD": "7834d71a-c425-4bac-a5c8-8c40b3e5e9de:string:[J] 777"
                 },
                 "departureEvent": {},
-                "iD": "ecf30db1-58a4-45f3-b63d-dacd88cdf129:string:[J] 666",
-                "information": "a4978650-2c04-4f13-a89a-4441ce998cfa:string:[J] Some information here"
+                "iD": "9f2fc25c-bba1-44b8-9245-ea9064879109:string:[J] 666",
+                "information": "bb699129-ce9e-4896-838a-9bed727a0760:string:[J] Some information here"
             },
             "unloadingBaseportLocation": {
-                "iD": "ecf26da6-8ab4-4b68-b5b6-be6f8eff1d69:string:[J] 888",
-                "name": "39381b9f-ad44-44bc-a21e-6dab114d09b8:string:[J] Some unloading port name"
+                "iD": "241574c2-831d-4142-aa13-7a96b16a9651:string:[J] 888",
+                "name": "98b5eff7-3737-42e5-8344-919d8cc0cc84:string:[J] Some unloading port name"
             },
-            "iD": "bbbe75ec-b5b2-4dc7-bc90-b5d799766419:string:222",
-            "information": "707ada97-49a2-4d56-9c62-32a2444102b4:string:[J] Consignment Information",
+            "iD": "5a45da08-4889-4a98-8c88-b2ebda46ea38:string:222",
+            "information": "b6152228-934a-4c32-8fa2-bbfb4bf2995b:string:[J] Consignment Information",
             "includedConsignmentItems": []
         },
         "issueLocation": {
-            "iD": "44cc9dd9-882d-453f-9ca7-619bb32c4aad:string:[J] unece.un.org:locode:AUADL",
-            "name": "9edd267e-c10f-4a41-b3a8-65e3aa8323f3:string:[J] Adelaide"
+            "iD": "b07c6a1a-8dda-4225-95f2-e1444913beef:string:[J] unece.un.org:locode:AUADL",
+            "name": "c3a7595d-d0a7-4a43-939f-eb7a3ba7bfc1:string:[J] Adelaide"
         },
         "issuer": {
-            "iD": "9c2dc288-0eab-43b4-a2f2-676af8a1d598:string:[J] id:wfa.org.au",
-            "name": "c484c2e8-d603-487a-a51c-9426f5947c00:string:[J] Australian Grape and Wine Incorporated",
+            "iD": "aa340648-e4d2-40a8-902e-ca5cbaba8686:string:[J] id:wfa.org.au",
+            "name": "1522e0df-3d88-4455-8314-e97d6dca65fa:string:[J] Australian Grape and Wine Incorporated",
             "postalAddress": {
-                "line1": "07447f22-c207-4e20-a2f0-2b2f3010166e:string:[J] Level 1, Industry Offcies",
-                "line2": "c1d9800f-fab3-4419-a3fc-c6a4002e1c22:string:[J] Botanic Road",
-                "cityName": "47b0e9d2-8cc1-4470-9c0a-c7296405e000:string:[J] Adelaide",
-                "postcode": "1bad3e80-ec39-4481-a2dc-ca8b176116e5:string:[J] 5000",
-                "countrySubDivisionName": "83a0bebf-caf3-4d7f-aa8e-bb30c3db47ce:string:[J] SA",
-                "countryCode": "8ede805a-79ef-4615-a780-4ad796694821:string:[J] AU"
+                "line1": "5ae23c9b-50a6-4044-85a8-ae225a616e3d:string:[J] Level 1, Industry Offcies",
+                "line2": "c0c3164d-ce03-4a31-8212-e0b910d7c8f8:string:[J] Botanic Road",
+                "cityName": "ae2a857f-d2a1-47ca-8b1d-72acba066186:string:[J] Adelaide",
+                "postcode": "8a23d0d8-b8ae-4056-8f18-5678a05da0bc:string:[J] 5000",
+                "countrySubDivisionName": "5345e95e-d9d7-4a48-ad60-d969c14b16fd:string:[J] SA",
+                "countryCode": "bea7c31b-a972-46bb-b8e7-d55fc795bcf7:string:[J] AU"
             }
         },
         "firstSignatoryAuthentication": {
-            "actualDateTime": "8679f8cd-54ff-48da-b50d-a4e0ac210145:string:2020-05-29T09:46:34Z",
-            "statement": "73d7a873-f1c8-4372-804d-20e2a291ca54:string:[J] The undersigned hereby declares that ... Free Trade Agreement.",
-            "signature": "364ccbfc-6e13-4612-a0d8-0f391771a5b7:string:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAgCAIAAADhZtM4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALGSURBVGhD7ZkxdtswDIbtniXp0NcT0CdIu3Tq2k1Zu+QG2brQY3MQ+QTNEbJId3FBEgBBiIgURbL77H5LJJAE8IMg/exsj8fj5ir5gH+vD1t5v99tgd2+R8OFUVXeH+5329ufz+H5+aWLtoujorw//Hp8iqovmorym7vffzrv8O1iMc5590Kb7j7d4tNpwWtme39Aw9LYNxzy+eMNPp2Sfv8jXTPNt7toWAH4PB+Sm71p0bQy5vFaLYH6nnOzzyg5tukbuzQfr5OBFSjgDXC+Q9Nk2mbuymOXaBvafnDydi9TqSrH7Ge0GtdsdpOKtp9TvenUlBvCW+9iUq+Iml8ygj3UhOe6+jZQdkRulkklQ+VxPqbLwQsHE0TVF9pwqjxf6NZOxCEQcDIwjKbAlMIL5RisdsgrLdj6JuA5RhE6QbWMcOrJKFJll4UHtRatmjRLDYNRFEqVkCiUhzUV4dIvWtmE71Zq5ESVTrzSnMIEZOF6BOYXSQ5Cu0a1hywio5RnKGfVZNGJjBUMhuxI00J3CBfOw32BzxFZiXSRBDC8bnE24ytr1GJLYFlSI0DltN578onCISfpMrhQW2BQLBvgeJifXAjJNXSQSRzJM4G0eSqDcmECzpnqLFrMoPKBmmKacIF5yHRimDIK1y0CDzIx13hxCiMx0TBf5RH95LXhtTxXg1s5QNGDP4pDETKoXJeR1ybKiqbRLt1xPnk0QhM8nFItwomclB2tZfQAeEkfa8MZw9gGqDwspqBhT9DI5JTqnuspW+REac8IGlF2kdxw8wBcVsvchJW/D7kto1XnyaMlWpNllMstHxGep55V91LKxZa/LjxPPLNu61vqfNz3r+YvGfD99ctTenT+YbVfHKaCFXgXY/dfRJyI0ZvgFCyr3Jb0r+le+JybZ1fcA2c/38Qyykcg4dXP4nPx/z+K18e1Kt9s/gIHk1EMWGyPxAAAAABJRU5ErkJggg=="
+            "actualDateTime": "2da3bed8-a042-4e93-9928-6ac7068a9650:string:2020-05-29T09:46:34Z",
+            "statement": "f846bc0d-0480-4f99-8b2c-a0986534a5b1:string:[J] The undersigned hereby declares that ... Free Trade Agreement.",
+            "signature": "976ddf4a-e398-472e-9e4e-d957edb393fa:string:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAgCAIAAADhZtM4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAALGSURBVGhD7ZkxdtswDIbtniXp0NcT0CdIu3Tq2k1Zu+QG2brQY3MQ+QTNEbJId3FBEgBBiIgURbL77H5LJJAE8IMg/exsj8fj5ir5gH+vD1t5v99tgd2+R8OFUVXeH+5329ufz+H5+aWLtoujorw//Hp8iqovmorym7vffzrv8O1iMc5590Kb7j7d4tNpwWtme39Aw9LYNxzy+eMNPp2Sfv8jXTPNt7toWAH4PB+Sm71p0bQy5vFaLYH6nnOzzyg5tukbuzQfr5OBFSjgDXC+Q9Nk2mbuymOXaBvafnDydi9TqSrH7Ge0GtdsdpOKtp9TvenUlBvCW+9iUq+Iml8ygj3UhOe6+jZQdkRulkklQ+VxPqbLwQsHE0TVF9pwqjxf6NZOxCEQcDIwjKbAlMIL5RisdsgrLdj6JuA5RhE6QbWMcOrJKFJll4UHtRatmjRLDYNRFEqVkCiUhzUV4dIvWtmE71Zq5ESVTrzSnMIEZOF6BOYXSQ5Cu0a1hywio5RnKGfVZNGJjBUMhuxI00J3CBfOw32BzxFZiXSRBDC8bnE24ytr1GJLYFlSI0DltN578onCISfpMrhQW2BQLBvgeJifXAjJNXSQSRzJM4G0eSqDcmECzpnqLFrMoPKBmmKacIF5yHRimDIK1y0CDzIx13hxCiMx0TBf5RH95LXhtTxXg1s5QNGDP4pDETKoXJeR1ybKiqbRLt1xPnk0QhM8nFItwomclB2tZfQAeEkfa8MZw9gGqDwspqBhT9DI5JTqnuspW+REac8IGlF2kdxw8wBcVsvchJW/D7kto1XnyaMlWpNllMstHxGep55V91LKxZa/LjxPPLNu61vqfNz3r+YvGfD99ctTenT+YbVfHKaCFXgXY/dfRJyI0ZvgFCyr3Jb0r+le+JybZ1fcA2c/38Qyykcg4dXP4nPx/z+K18e1Kt9s/gIHk1EMWGyPxAAAAABJRU5ErkJggg=="
         }
     },
     "signature": {
         "type": "SHA3MerkleProof",
-        "targetHash": "a1e2f8127c160d20ab739b4687c3795e1cacc110aa8117afd964a569078b7fc2",
+        "targetHash": "d76b7b8d209ab4131d4b306c610fa65bac77983452d63c0ef9e9b1ec8ff97f40",
         "proof": [],
-        "merkleRoot": "a1e2f8127c160d20ab739b4687c3795e1cacc110aa8117afd964a569078b7fc2"
+        "merkleRoot": "d76b7b8d209ab4131d4b306c610fa65bac77983452d63c0ef9e9b1ec8ff97f40"
     }
 }
