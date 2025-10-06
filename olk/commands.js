@@ -41,7 +41,7 @@ function onMessageSendHandler(event) {
             }
           });
           } else {
-            console.log("[Commands.js::onMessageSendHandler()] E-1.001 Failed to get subject: " + asyncResult.error.message);
+            console.info("[Commands.js::onMessageSendHandler()] E-1.001 Failed to get subject: " + asyncResult.error.message);
           }
       }
     );
@@ -50,6 +50,8 @@ function onMessageSendHandler(event) {
   
 
   event.completed({ allowEvent: false });
+
+  console.info("[Commands.js::onMessageSendHandler()] Exit!");
 }
 
 
