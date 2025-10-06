@@ -1,7 +1,7 @@
 Office.onReady((info) => {
   console.info('Commands.js::onReady()');
 });
-
+/*
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
 
 function onMessageSendHandler(event) {
@@ -9,3 +9,5 @@ function onMessageSendHandler(event) {
 
   event.completed({ allowEvent: false });
 }
+*/
+
