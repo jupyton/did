@@ -36,13 +36,17 @@ function onMessageSendHandler(event) {
           Office.context.mailbox.item.subject.setAsync(sanitizedSubjectHtml, { coercionType: Office.CoercionType.subjectHtml }, function (setAsyncResult) {
             if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
               console.info("[Commands.js::onMessageSendHandler()] S-1.001 SSNs have been redacted from the email subject.");
+
+              event.completed({allowEvent: false, errorMessage: "Redacted! But I still block you!!!"});
             } else {
               console.info("[Commands.js::onMessageSendHandler()] E-1.002 Failed to set redacted subject: " + asyncResult.error.message);
+
+              event.completed({allowEvent: false, errorMessage: "Not able to set redacted SUBJECT!!!"});
             }
           });
           } else {
             console.info("[Commands.js::onMessageSendHandler()] E-1.001 Failed to get subject: " + asyncResult.error.message);
-            event.completed({ allowEvent: false });
+            event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT!!!"});
           }
       }
     );
