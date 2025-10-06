@@ -35,13 +35,14 @@ function onMessageSendHandler(event) {
           // Set the sanitized HTML back into the email body
           Office.context.mailbox.item.subject.setAsync(sanitizedSubjectHtml, { coercionType: Office.CoercionType.subjectHtml }, function (setAsyncResult) {
             if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-              console.info("Commands.js::onReady() S-1.001 SSNs have been redacted from the email subject.");
+              console.info("[Commands.js::onMessageSendHandler()] S-1.001 SSNs have been redacted from the email subject.");
             } else {
-              console.info("Commands.js::onReady() E-1.002 Failed to set the redacted email subject.");
+              console.info("[Commands.js::onMessageSendHandler()] E-1.002 Failed to set redacted subject: " + asyncResult.error.message);
             }
           });
           } else {
             console.info("[Commands.js::onMessageSendHandler()] E-1.001 Failed to get subject: " + asyncResult.error.message);
+            event.completed({ allowEvent: false });
           }
       }
     );
@@ -49,7 +50,7 @@ function onMessageSendHandler(event) {
 
   
 
-  event.completed({ allowEvent: false });
+  
 
   console.info("[Commands.js::onMessageSendHandler()] Exit!");
 }
