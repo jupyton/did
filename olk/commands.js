@@ -137,12 +137,3 @@ const item = Office.context.mailbox.item;
 
 
 
-
-  
-
-  
-
-  console.info("[Commands.js::onMessageSendHandler()] Exit!");
-}
-
-
