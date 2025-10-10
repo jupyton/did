@@ -65,7 +65,7 @@ function onMessageSendHandler(event) {
   const dialogOptions = { width: 60, height: 40, displayInIframe: true };
 
   Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
-    console.info("[Commands.js::onMessageSendHandler()] Dialog error=[" + result.error + "]");
+    console.info("[Commands.js::onMessageSendHandler()] Dialog error=[" + result.error.message + "]");
     settingsDialog = result.value;
     console.info("[Commands.js::onMessageSendHandler()] settingsDialog=[" + settingsDialog + "]");
     // settingsDialog.addEventHandler(Office.EventType.DialogMessageReceived, receiveMessage);
