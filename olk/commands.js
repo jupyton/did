@@ -50,11 +50,27 @@ const makePromiseSetBody = (mailItem, newBody) => {
 function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
+  // ======== TEST - show a NOTIFICATION ========
   Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
     message: 'is there an error? block first!'
   }, function(result){
   });
+  // ======== TEST - show a NOTIFICATION ========
+
+
+  // ======== TEST - show a DIALOG ========
+  const url = new URI('dialog.html?warn=1').absoluteTo(window.location).toString();
+  console.info("[Commands.js::onMessageSendHandler()] url=[" + url + "]");
+  const dialogOptions = { width: 20, height: 40, displayInIframe: true };
+
+  Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
+    settingsDialog = result.value;
+    console.info("[Commands.js::onMessageSendHandler()] settingsDialog=[" + settingsDialog + "]");
+    // settingsDialog.addEventHandler(Office.EventType.DialogMessageReceived, receiveMessage);
+    // settingsDialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
+  });
+  // ======== TEST - show a DIALOG ========
 
 
 const item = Office.context.mailbox.item;
