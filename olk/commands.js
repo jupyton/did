@@ -62,9 +62,10 @@ function onMessageSendHandler(event) {
   // ======== TEST - show a DIALOG ========
   const url = 'https://jupyton.github.io/did/olk/dialog.html?warn=1'; // new URI('dialog.html?warn=1').absoluteTo(window.location).toString();
   console.info("[Commands.js::onMessageSendHandler()] url=[" + url + "]");
-  const dialogOptions = { width: 20, height: 40, displayInIframe: true };
+  const dialogOptions = { width: 60, height: 40, displayInIframe: true };
 
   Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
+    console.info("[Commands.js::onMessageSendHandler()] Dialog error=[" + result.error + "]");
     settingsDialog = result.value;
     console.info("[Commands.js::onMessageSendHandler()] settingsDialog=[" + settingsDialog + "]");
     // settingsDialog.addEventHandler(Office.EventType.DialogMessageReceived, receiveMessage);
