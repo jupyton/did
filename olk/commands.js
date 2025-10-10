@@ -123,7 +123,7 @@ const item = Office.context.mailbox.item;
 
         Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
             console.info("[ARG] successfully set redacted SUBJECT / BODY:");
-            event.completed({ allowEvent: false, errorMessage: "Everything is fine. But I just want tp block!!!" });
+            event.completed({ allowEvent: false, errorMessage: "Everything is fine. But I just want to block!!!" });
         }).catch((error) => {
             console.error("[ARG] An error occurred while setting item data:", error);
             event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
