@@ -126,7 +126,9 @@ const item = Office.context.mailbox.item;
             event.completed({ 
               allowEvent: false, 
               errorMessage: "Everything OK, but still don't let you send",
-              errorMessageMarkdown: "Looks like you're forgetting to include an attachment.\n\n**Tip**: For guidance on how to attach a file, see [Attach files in Outlook](https://www.contoso.com/help/attach-files-in-outlook)."
+              errorMessageMarkdown: "forgetting to include an attachment.\n\n**Tip**: see [Attach files in Outlook]",
+              cancelLabel: "Redact it",
+              commandId: "msgComposeOpenPaneButton"
             });
         }).catch((error) => {
             console.error("[ARG] An error occurred while setting item data:", error);
