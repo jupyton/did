@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-  <title>Dialog</title>
-
   <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-
   <script>
   Office.onReady(() => {
-    console.info("[ARG] dialog.html : Dialog is ready");
+    console.info("[ARG] dialog.html Office.onReady()");
   });
 </script>
 </head>
+<body>
+  <h2>Confirm Send</h2>
+  <button onclick="confirm()">Yes, Send</button>
+  <button onclick="cancel()">Cancel</button>
 
-<body class="ms-font-l">
-  <main>
-    <section class="ms-font-m ms-fontColor-neutralPrimary">
-      <div class="ms-Dialog-actions">
-        <div class="ms-Dialog-actionsRight">
-          <button class="ms-Dialog-action ms-Button ms-Button--primary" id="settings-done" disabled>
-            <span class="ms-Button-label">Completed 2</span>
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
+  <script>
+    Office.onReady(() => {
+      // Ready to communicate
+    });
+
+    function confirm() {
+      Office.context.ui.messageParent("confirm");
+    }
+
+    function cancel() {
+      Office.context.ui.messageParent("cancel");
+    }
+  </script>
 </body>
-
 </html>
