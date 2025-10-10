@@ -52,7 +52,7 @@ function onMessageSendHandler(event) {
 
   Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
-    message: error
+    message: 'is there an error? block first!'
   }, function(result){
   });
 
