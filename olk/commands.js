@@ -51,7 +51,7 @@ function openDialogAndWait() {
     
     Office.context.ui.displayDialogAsync(
       "https://jupyton.github.io/did/olk/dialog.html?warn=1",
-      { height: 40, width: 40, displayInIframe: true },
+      { height: 40, width: 40, displayInIframe: false },
       function (asyncResult) {
         if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
           console.error("Dialog failed to open:");
