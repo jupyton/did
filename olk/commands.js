@@ -47,6 +47,8 @@ const makePromiseSetBody = (mailItem, newBody) => {
 
 function openDialogAndWait() {
   return new Promise((resolve, reject) => {
+    console.info("commands.js::openDialogAndWait() Promise");
+    
     Office.context.ui.displayDialogAsync(
       "https://jupyton.github.io/did/olk/dialog.html?warn=1",
       { height: 40, width: 40, displayInIframe: true },
@@ -79,7 +81,7 @@ async function onMessageSendHandler(event) {
   // ======== TEST - show a NOTIFICATION ========
   Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
-    message: 'is there an error? block first!'
+    message: 'is there an error? block first! 1'
   }, function(result){
   });
   // ======== TEST - show a NOTIFICATION ========
