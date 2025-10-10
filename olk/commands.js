@@ -50,6 +50,12 @@ const makePromiseSetBody = (mailItem, newBody) => {
 function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
+  Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
+    type: 'errorMessage',
+    message: error
+  }, function(result){
+  });
+
 
 const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
