@@ -65,6 +65,32 @@ function onMessageSendHandler(event) {
   const dialogOptions = { width: 60, height: 40, displayInIframe: true };
 
   Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
+    console.info("[Commands.js::onMessageSendHandler()] Dialog result.statu=[" + result.status + "]");
+    /*
+    if (result.status === Office.AsyncResultStatus.Succeeded) {
+            dialog = result.value;
+
+            // Attach an event handler to the dialog to listen for it being closed.
+            dialog.addEventHandler(Office.EventType.DialogEventReceived, function(dialogEvent) {
+                console.info("[DialogEventReceived] Dialog was closed. dialogEvent.error=" + dialogEvent.error);
+
+                // Check for a specific dialog close code (e.g., 12006 for user close).
+                if (dialogEvent.error === 12006) {
+                    console.info("User manually closed the dialog.");
+                }
+
+                // Now that the dialog is closed, it is safe to complete the on-send event.
+                event.completed({ allowEvent: true });
+            });
+            
+            console.info("Dialog opened successfully. Waiting for dialog to close...");
+        } else {
+            console.error("Error opening dialog:", result.error.message);
+            // If the dialog failed to open, complete the event with failure.
+            event.completed({ allowEvent: false });
+        }
+        */
+    
     console.info("[Commands.js::onMessageSendHandler()] Dialog error=[" + result.error.message + "]");
     settingsDialog = result.value;
     console.info("[Commands.js::onMessageSendHandler()] settingsDialog=[" + settingsDialog + "]");
