@@ -72,8 +72,9 @@ function onMessageSendHandler(event) {
   });
   // ======== TEST - show a DIALOG ========
 
+  if (1<0) {
 
-const item = Office.context.mailbox.item;
+  const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
 
@@ -149,7 +150,7 @@ const item = Office.context.mailbox.item;
         event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT, BODY!!!" });
     });
 
-
+  }
   
 
   
