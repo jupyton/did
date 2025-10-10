@@ -73,7 +73,7 @@ function openDialogAndWait() {
 
 
 // event handler
-function onMessageSendHandler(event) {
+async function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
   // ======== TEST - show a NOTIFICATION ========
