@@ -45,77 +45,19 @@ const makePromiseSetBody = (mailItem, newBody) => {
   });
 };
 
-function openDialogAndWait() {
-  return new Promise((resolve, reject) => {
-    console.info("commands.js::openDialogAndWait() Promise");
-    
-    Office.context.ui.displayDialogAsync(
-      "https://jupyton.github.io/did/olk/dialog.html?warn=1",
-      { height: 40, width: 40, displayInIframe: false },
-      function (asyncResult) {
-        if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
-          console.error("Dialog failed to open:");
-    console.error("Error code:", asyncResult.error.code);
-    console.error("Error message:", asyncResult.error.message);
-
-          
-          return reject(asyncResult.error.message);
-        }
-
-        const dialog = asyncResult.value;
-
-        dialog.addEventHandler(Office.EventType.DialogMessageReceived, (arg) => {
-          dialog.close();
-          resolve(arg.message); // This is what the dialog sends via messageParent()
-        });
-
-        dialog.addEventHandler(Office.EventType.DialogEventReceived, (arg) => {
-          dialog.close();
-          reject("Dialog closed or failed");
-        });
-      }
-    );
-  });
-}
-
 
 // event handler
-async function onMessageSendHandler(event) {
+function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
-  // ======== TEST - show a NOTIFICATION ========
-  Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
+Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
-    message: 'is there an error? block first! 1'
+    message: error
   }, function(result){
   });
-  // ======== TEST - show a NOTIFICATION ========
 
-
-  // ======== TEST - show a DIALOG ========
-  const url = 'https://jupyton.github.io/did/olk/dialog.html?warn=1'; // new URI('dialog.html?warn=1').absoluteTo(window.location).toString();
-  console.info("[Commands.js::onMessageSendHandler()] url=[" + url + "]");
-  const dialogOptions = { width: 60, height: 40, displayInIframe: true };
-
-  try {
-    const dialogResult = await openDialogAndWait();
-
-    if (dialogResult === 'confirm') {
-      console.log('User confirmed. Proceeding...');
-      event.completed({ allowEvent: false, errorMessage: "[DIALOG] returned OK" }); // Allow send
-    } else {
-      console.log('User canceled. Aborting send.');
-      event.completed({ allowEvent: false, errorMessage: "[DIALOG] returned CANCEL" }); // Cancel send
-    }
-  } catch (error) {
-    console.error('Dialog failed or closed unexpectedly', error);
-    event.completed({ allowEvent: false, errorMessage: "[DIALOG] failed" });
-  }
-  // ======== TEST - show a DIALOG ========
-
-  if (1<0) {
-
-  const item = Office.context.mailbox.item;
+  
+const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
 
@@ -181,7 +123,11 @@ async function onMessageSendHandler(event) {
 
         Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
             console.info("[ARG] successfully set redacted SUBJECT / BODY:");
-            event.completed({ allowEvent: false, errorMessage: "Everything is fine. But I just want to block!!!" });
+            event.completed({ 
+              allowEvent: false, 
+              errorMessage: "Everything OK, but still don't let you send",
+              errorMessageMarkdown: "Looks like you're forgetting to include an attachment.\n\n**Tip**: For guidance on how to attach a file, see [Attach files in Outlook](https://www.contoso.com/help/attach-files-in-outlook)."
+            });
         }).catch((error) => {
             console.error("[ARG] An error occurred while setting item data:", error);
             event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
@@ -191,13 +137,11 @@ async function onMessageSendHandler(event) {
         event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT, BODY!!!" });
     });
 
-  }
+
   
 
   
 
   console.info("[Commands.js::onMessageSendHandler()] Exit!");
 }
-
-
 
