@@ -45,6 +45,32 @@ const makePromiseSetBody = (mailItem, newBody) => {
   });
 };
 
+function openDialogAndWait() {
+  return new Promise((resolve, reject) => {
+    Office.context.ui.displayDialogAsync(
+      "https://jupyton.github.io/did/olk/dialog.html?warn=1",
+      { height: 40, width: 40, displayInIframe: true },
+      function (asyncResult) {
+        if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
+          return reject(asyncResult.error.message);
+        }
+
+        const dialog = asyncResult.value;
+
+        dialog.addEventHandler(Office.EventType.DialogMessageReceived, (arg) => {
+          dialog.close();
+          resolve(arg.message); // This is what the dialog sends via messageParent()
+        });
+
+        dialog.addEventHandler(Office.EventType.DialogEventReceived, (arg) => {
+          dialog.close();
+          reject("Dialog closed or failed");
+        });
+      }
+    );
+  });
+}
+
 
 // event handler
 function onMessageSendHandler(event) {
@@ -64,39 +90,20 @@ function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] url=[" + url + "]");
   const dialogOptions = { width: 60, height: 40, displayInIframe: true };
 
-  Office.context.ui.displayDialogAsync(url, dialogOptions, function(result) {
-    console.info("[Commands.js::onMessageSendHandler()] Dialog result.statu=[" + result.status + "]");
-    /*
-    if (result.status === Office.AsyncResultStatus.Succeeded) {
-            dialog = result.value;
+  try {
+    const dialogResult = await openDialogAndWait();
 
-            // Attach an event handler to the dialog to listen for it being closed.
-            dialog.addEventHandler(Office.EventType.DialogEventReceived, function(dialogEvent) {
-                console.info("[DialogEventReceived] Dialog was closed. dialogEvent.error=" + dialogEvent.error);
-
-                // Check for a specific dialog close code (e.g., 12006 for user close).
-                if (dialogEvent.error === 12006) {
-                    console.info("User manually closed the dialog.");
-                }
-
-                // Now that the dialog is closed, it is safe to complete the on-send event.
-                event.completed({ allowEvent: true });
-            });
-            
-            console.info("Dialog opened successfully. Waiting for dialog to close...");
-        } else {
-            console.error("Error opening dialog:", result.error.message);
-            // If the dialog failed to open, complete the event with failure.
-            event.completed({ allowEvent: false });
-        }
-        */
-    
-    console.info("[Commands.js::onMessageSendHandler()] Dialog error=[" + result.error.message + "]");
-    settingsDialog = result.value;
-    console.info("[Commands.js::onMessageSendHandler()] settingsDialog=[" + settingsDialog + "]");
-    // settingsDialog.addEventHandler(Office.EventType.DialogMessageReceived, receiveMessage);
-    // settingsDialog.addEventHandler(Office.EventType.DialogEventReceived, dialogClosed);
-  });
+    if (dialogResult === 'confirm') {
+      console.log('User confirmed. Proceeding...');
+      event.completed({ allowEvent: false, errorMessage: "[DIALOG] returned OK" }); // Allow send
+    } else {
+      console.log('User canceled. Aborting send.');
+      event.completed({ allowEvent: false, errorMessage: "[DIALOG] returned CANCEL" }); // Cancel send
+    }
+  } catch (error) {
+    console.error('Dialog failed or closed unexpectedly', error);
+    event.completed({ allowEvent: false, errorMessage: "[DIALOG] failed" });
+  }
   // ======== TEST - show a DIALOG ========
 
   if (1<0) {
