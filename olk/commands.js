@@ -123,7 +123,6 @@ const item = Office.context.mailbox.item;
 
         Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
             console.info("[ARG] successfully set redacted SUBJECT / BODY:");
-          const userDecision = await openSmartDialog();
             event.completed({ 
               allowEvent: false, 
               errorMessage: "Everything OK, but still don't let you send",
