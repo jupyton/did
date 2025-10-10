@@ -13,6 +13,7 @@ Office.onReady((info) => {
 });
 
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
+Office.actions.associate("redactMessageHandler", redactMessageHandler);
 
 // Factories
 const makePromiseSetSubject = (mailItem, newSubject) => {
@@ -47,6 +48,11 @@ const makePromiseSetBody = (mailItem, newBody) => {
 
 
 // event handler
+function redactMessageHandler() {
+  console.info("[Commands.js::redactMessageHandler()] being called!");
+}
+
+
 function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
