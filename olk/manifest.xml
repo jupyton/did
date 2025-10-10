@@ -64,6 +64,31 @@
               <!-- Identifies the runtime to be used by the add-in (also referenced by the Runtime element). -->
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
+
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="hiddenSmartDialogGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="runRedactionFunction">
+                    <Label resid="redactLabel"/>
+                    <Supertip>
+                      <Title resid="redactTitle"/>
+                      <Description resid="redactDescription"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>redactMessageHandler</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+
+              
           </DesktopFormFactor>
         </Host>
       </Hosts>
@@ -81,9 +106,14 @@
         <bt:ShortStrings>
           <bt:String id="CategoriesGroupLabel" DefaultValue="[ARG-local] Outlook Add-ins - Redact Demo"/>
           <bt:String id="SelectButtonLabel" DefaultValue="[ARG-local] Select categories"/>
+
+          <bt:String id="groupLabel" DefaultValue="Hidden Group"/>
+          <bt:String id="redactLabel" DefaultValue="Redact"/>
+          <bt:String id="redactTitle" DefaultValue="Redact Email"/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="SelectButtonDescription" DefaultValue="[ARG-local] Opens a task pane to select and apply categories to an email or appointment."/>
+          <bt:String id="redactDescription" DefaultValue="Launch redaction process."/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
