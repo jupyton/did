@@ -52,8 +52,8 @@ function onMessageSendHandler(event) {
 
 Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
-    message: error
-  }, function(result){
+    message: "error message"
+  }, function(result) {
   });
 
   
