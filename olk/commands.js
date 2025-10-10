@@ -20,10 +20,10 @@ const makePromiseSetSubject = (mailItem, newSubject) => {
     console.log("[ARG] trying to set subject to [" + newSubject + "]");
     mailItem.subject.setAsync(newSubject, { coercionType: Office.CoercionType.subjectHtml }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] set subject OK" + setAsyncResult.value);
+        console.log("[ARG] set subject OK : [" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
-        console.log("[ARG] set subject BAD" + setAsyncResult.error.message);
+        console.log("[ARG] set subject BAD : " + setAsyncResult.error.message + "]");
         reject(setAsyncResult.error.message);
       }
     });
@@ -35,10 +35,10 @@ const makePromiseSetBody = (mailItem, newBody) => {
     console.log("[ARG] trying to set body to [" + newBody + "]");
     mailItem.body.setAsync(newBody, { coercionType: Office.CoercionType.Html }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] set body OK" + setAsyncResult.value);
+        console.log("[ARG] set body OK : 【" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
-        console.log("[ARG] set body BAD" + setAsyncResult.error.message);
+        console.log("[ARG] set body BAD : [" + setAsyncResult.error.message + "]");
         reject(setAsyncResult.error.message);
       }
     });
