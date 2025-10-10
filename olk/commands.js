@@ -54,6 +54,11 @@ function openDialogAndWait() {
       { height: 40, width: 40, displayInIframe: true },
       function (asyncResult) {
         if (asyncResult.status !== Office.AsyncResultStatus.Succeeded) {
+          console.error("Dialog failed to open:");
+    console.error("Error code:", asyncResult.error.code);
+    console.error("Error message:", asyncResult.error.message);
+
+          
           return reject(asyncResult.error.message);
         }
 
