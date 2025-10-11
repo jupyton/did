@@ -9,8 +9,8 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Jupyton</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName           DefaultValue="Simple Add-ins - Test Only"/>
-  <Description           DefaultValue="Simple Add-ins - Test onSend Only"/>
+  <DisplayName           DefaultValue="Simple Add-ins - Test - v01"/>
+  <Description           DefaultValue="Simple Add-ins - Test onSend Only - v01"/>
   <IconUrl               DefaultValue="https://jupyton.github.io/did/olk/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-128.png"/>
   <SupportUrl            DefaultValue="https://www.jupyton.com/help"/>
