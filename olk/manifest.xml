@@ -64,9 +64,6 @@
               <!-- Identifies the runtime to be used by the add-in (also referenced by the Runtime element). -->
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
-
-
-              
           </DesktopFormFactor>
         </Host>
       </Hosts>

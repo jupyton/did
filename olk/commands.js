@@ -13,7 +13,6 @@ Office.onReady((info) => {
 });
 
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
-Office.actions.associate("redactMessageHandler", redactMessageHandler);
 
 // Factories
 const makePromiseSetSubject = (mailItem, newSubject) => {
