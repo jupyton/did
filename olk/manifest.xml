@@ -9,11 +9,11 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Jupyton</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Simple Add-ins - Test Only"/>
-  <Description DefaultValue="Simple Add-ins - Test onSend Only"/>
-  <IconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-64.png"/>
+  <DisplayName           DefaultValue="Simple Add-ins - Test Only"/>
+  <Description           DefaultValue="Simple Add-ins - Test onSend Only"/>
+  <IconUrl               DefaultValue="https://jupyton.github.io/did/olk/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-128.png"/>
-  <SupportUrl DefaultValue="https://www.jupyton.com/help"/>
+  <SupportUrl            DefaultValue="https://www.jupyton.com/help"/>
   <AppDomains>
     <AppDomain>https://jupyton.github.io/</AppDomain>
   </AppDomains>
@@ -65,28 +65,6 @@
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
 
-            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-              <OfficeTab id="TabDefault">
-                <Group id="hiddenSmartDialogGroup">
-                  <Label resid="groupLabel"/>
-                  <Control xsi:type="Button" id="runRedactionFunction">
-                    <Label resid="redactLabel"/>
-                    <Supertip>
-                      <Title resid="redactTitle"/>
-                      <Description resid="redactDescription"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
-                      <bt:Image size="32" resid="Icon.32x32"/>
-                      <bt:Image size="80" resid="Icon.80x80"/>
-                    </Icon>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>redactMessageHandler</FunctionName>
-                    </Action>
-                  </Control>
-                </Group>
-              </OfficeTab>
-            </ExtensionPoint>
 
               
           </DesktopFormFactor>
