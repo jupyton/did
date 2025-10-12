@@ -1,3 +1,6 @@
+const MY_NAME = 'v02 - 002';
+
+
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
 const nricRegex = /[SFTG]\d{7}[A-Z]/gm;
 const creditcardRegex = /(\d{4}[-]){3}\d{4}|\d{16}/gm;
@@ -57,7 +60,7 @@ function onMessageSendHandler(event) {
 
   Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
     type: 'errorMessage',
-    message: "Argentra notificationMessages v02"
+    message: "Argentra notificationMessages " + MY_NAME
   }, function (result) {
   });
 
