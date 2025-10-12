@@ -1,4 +1,4 @@
-const MY_NAME = 'v02 - 002';
+const MY_NAME = 'v02 - 003';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -38,7 +38,7 @@ const makePromiseSetBody = (mailItem, newBody) => {
     console.log("[v02] trying to set body to [" + newBody + "]");
     mailItem.body.setAsync(newBody, { coercionType: Office.CoercionType.Html }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[v02] set body OK : 【" + setAsyncResult.value + "]");
+        console.log("[v02] set body OK : [" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
         console.log("[v02] set body BAD : [" + setAsyncResult.error.message + "]");
@@ -147,13 +147,13 @@ function onMessageSendHandler(event) {
         }),
       })
         .then(response => {
+          console.error(`[v02] in fetch() response: ${response.statusText}`);
+
           if (!response.ok) {
-            // Log an error if the API request fails
             console.error(`[v02] POST to LOG - API failed: ${response.statusText}`);
             event.completed({ allowEvent: false, errorMessage: "Send LOG failed on API" });
           }
 
-          // API call was successful (or failed), allow the message to be sent
           console.error(`[v02] POST to LOG - API OK: ${response.statusText}`);
           event.completed({
             allowEvent: false,
@@ -161,9 +161,7 @@ function onMessageSendHandler(event) {
           });
         })
         .catch(error => {
-          // Log a network error
           console.error("[v02] POST to LOG - NETWORK failed :", error);
-          // Allow the message to be sent despite the API call failing
           event.completed({ allowEvent: false, errorMessage: "Send LOG failed on Network" });
         });
 
