@@ -1,4 +1,4 @@
-const MY_NAME = 'v02 - 005';
+const MY_NAME = 'v02 - 006';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -155,6 +155,8 @@ function onMessageSendHandler(event) {
           }
 
           console.info(`[v02] POST to LOG - API OK, STATUS=[${response.statusText}]`);
+
+          console.info(`[v02] POST to LOG - API OK, STATUS=[${JSON.stringify(response.json())}]`);
 
           return response.json();
         })
