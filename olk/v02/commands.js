@@ -1,4 +1,4 @@
-const MY_NAME = 'v02 - 006';
+const MY_NAME = 'v02 - 007';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -156,12 +156,10 @@ function onMessageSendHandler(event) {
 
           console.info(`[v02] POST to LOG - API OK, STATUS=[${response.statusText}]`);
 
-          console.info(`[v02] POST to LOG - API OK, STATUS=[${JSON.stringify(response.json())}]`);
-
           return response.json();
         })
-        .then(dataBody => {
-          console.info(`[v02] POST to LOG - API OK, BODY=[${dataBody}]`);
+        .then(data => {
+          console.info(`[v02] POST to LOG - API OK, BODY=[${data}]`);
           event.completed({
             allowEvent: false,
             errorMessage: "Everything OK, but still don't let you send"
