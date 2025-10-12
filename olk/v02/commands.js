@@ -1,4 +1,4 @@
-const MY_NAME = 'v02 - 008';
+const MY_NAME = 'v02 - 009';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -53,6 +53,7 @@ const makePromiseSetBody = (mailItem, newBody) => {
 function redactMessageHandler() {
   console.info("[Commands.js::redactMessageHandler()] being called!");
 }
+
 
 
 function onMessageSendHandler(event) {
@@ -161,6 +162,13 @@ function onMessageSendHandler(event) {
         .then(data => {
           console.info(`[v02] POST to LOG - API OK, DATA=[${data}]`);
           console.info(`[v02] POST to LOG - API OK, DATA JSON=[${JSON.stringify(data)}]`);
+
+          Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
+            type: 'errorMessage',
+            message: `Everything OK, but still don't let you send [${MY_NAME}]`
+          }, function (result) {
+          });
+
           event.completed({
             allowEvent: false,
             errorMessage: "Everything OK, but still don't let you send"
