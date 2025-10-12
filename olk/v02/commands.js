@@ -128,10 +128,48 @@ function onMessageSendHandler(event) {
 
     Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
       console.info("[v02] successfully set redacted SUBJECT / BODY:");
-      event.completed({
-        allowEvent: false,
-        errorMessage: "Everything OK, but still don't let you send"
-      });
+
+
+      // POST to LOG Server
+      fetch('https://jsonplaceholder.typicode.com/comments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          postId: 89,
+          name: 'whose name',
+          email: "whose@names.world",
+          body: new Date().toISOString()
+        }),
+      })
+        .then(response => {
+          if (!response.ok) {
+            // Log an error if the API request fails
+            console.error(`[v02] POST to LOG - API failed: ${response.statusText}`);
+            event.completed({ allowEvent: false, errorMessage: "Send LOG failed on API" });
+          }
+
+          // API call was successful (or failed), allow the message to be sent
+          console.error(`[v02] POST to LOG - API OK: ${response.statusText}`);
+          event.completed({
+            allowEvent: false,
+            errorMessage: "Everything OK, but still don't let you send"
+          });
+        })
+        .catch(error => {
+          // Log a network error
+          console.error("[v02] POST to LOG - NETWORK failed :", error);
+          // Allow the message to be sent despite the API call failing
+          event.completed({ allowEvent: false, errorMessage: "Send LOG failed on Network" });
+        });
+
+      // POST to LOG Server
+
+
+
+
+      
     }).catch((error) => {
       console.error("[v02] An error occurred while setting item data:", error);
       event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
