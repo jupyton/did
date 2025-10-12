@@ -9,7 +9,7 @@ const creditcardRedacted = 'xxxx-xxxx-xxxx-xxxx';
 
 
 Office.onReady((info) => {
-  console.info('Commands.js::onReady()');
+  console.info('[v02] Commands.js::onReady()');
 });
 
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
@@ -17,13 +17,13 @@ Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
 // Factories
 const makePromiseSetSubject = (mailItem, newSubject) => {
   return new Promise((resolve, reject) => {
-    console.log("[ARG] trying to set subject to [" + newSubject + "]");
+    console.log("[v02] trying to set subject to [" + newSubject + "]");
     mailItem.subject.setAsync(newSubject, { coercionType: Office.CoercionType.subjectHtml }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] set subject OK : [" + setAsyncResult.value + "]");
+        console.log("[v02] set subject OK : [" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
-        console.log("[ARG] set subject BAD : " + setAsyncResult.error.message + "]");
+        console.log("[v02] set subject BAD : " + setAsyncResult.error.message + "]");
         reject(setAsyncResult.error.message);
       }
     });
@@ -32,13 +32,13 @@ const makePromiseSetSubject = (mailItem, newSubject) => {
 
 const makePromiseSetBody = (mailItem, newBody) => {
   return new Promise((resolve, reject) => {
-    console.log("[ARG] trying to set body to [" + newBody + "]");
+    console.log("[v02] trying to set body to [" + newBody + "]");
     mailItem.body.setAsync(newBody, { coercionType: Office.CoercionType.Html }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] set body OK : 【" + setAsyncResult.value + "]");
+        console.log("[v02] set body OK : 【" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
-        console.log("[ARG] set body BAD : [" + setAsyncResult.error.message + "]");
+        console.log("[v02] set body BAD : [" + setAsyncResult.error.message + "]");
         reject(setAsyncResult.error.message);
       }
     });
@@ -53,11 +53,11 @@ function redactMessageHandler() {
 
 
 function onMessageSendHandler(event) {
-  console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
+  console.info("[v02 Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
   Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
     type: 'errorMessage',
-    message: "Argentra notificationMessages"
+    message: "Argentra notificationMessages v02"
   }, function (result) {
   });
 
@@ -67,26 +67,26 @@ function onMessageSendHandler(event) {
   let sanitizedBodyHtml = "";
 
   const getSubjectPromise = new Promise((resolve, reject) => {
-    console.log("[ARG] trying to get subject");
+    console.log("[v02] trying to get subject");
     item.subject.getAsync((asyncResult) => {
       if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] fetch subject OK");
+        console.log("[v02] fetch subject OK");
         resolve(asyncResult.value);
       } else {
-        console.log("[ARG] fetch subject BAD");
+        console.log("[v02] fetch subject BAD");
         reject(asyncResult.error.message);
       }
     });
   });
 
   const getBodyPromise = new Promise((resolve, reject) => {
-    console.log("[ARG] trying to get body");
+    console.log("[v02] trying to get body");
     item.body.getAsync(Office.CoercionType.Html, (asyncResult) => {
       if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] fetch body OK");
+        console.log("[v02] fetch body OK");
         resolve(asyncResult.value);
       } else {
-        console.log("[ARG] fetch body BAD");
+        console.log("[v02] fetch body BAD");
         reject(asyncResult.error.message);
       }
     });
@@ -101,13 +101,13 @@ function onMessageSendHandler(event) {
     bodyHtml = bodyHtml + "";
     bodyHtml = bodyHtml.trim();
 
-    console.log("[ARG] SUBJECT --->");
-    console.log("[ARG] " + subjectHtml);
-    console.log("[ARG] <--- SUBJECT");
+    console.log("[v02] SUBJECT --->");
+    console.log("[v02] " + subjectHtml);
+    console.log("[v02] <--- SUBJECT");
 
-    console.log("[ARG] BODY --->");
-    console.log("[ARG] " + bodyHtml);
-    console.log("[ARG] <--- BODY");
+    console.log("[v02] BODY --->");
+    console.log("[v02] " + bodyHtml);
+    console.log("[v02] <--- BODY");
 
     sanitizedSubjectHtml = subjectHtml.replace(nricRegex, nricRedacted);
     sanitizedSubjectHtml = sanitizedSubjectHtml.replace(creditcardRegex, creditcardRedacted);
@@ -115,29 +115,29 @@ function onMessageSendHandler(event) {
     sanitizedBodyHtml = bodyHtml.replace(nricRegex, nricRedacted);
     sanitizedBodyHtml = sanitizedBodyHtml.replace(creditcardRegex, creditcardRedacted);
 
-    console.log("[ARG] Sanitized SUBJECT --->");
-    console.log("[ARG] " + sanitizedSubjectHtml);
-    console.log("[ARG] <--- Sanitized SUBJECT");
+    console.log("[v02] Sanitized SUBJECT --->");
+    console.log("[v02] " + sanitizedSubjectHtml);
+    console.log("[v02] <--- Sanitized SUBJECT");
 
-    console.log("[ARG] Sanitized BODY --->");
-    console.log("[ARG] " + sanitizedBodyHtml);
-    console.log("[ARG] <--- Sanitized BODY");
+    console.log("[v02] Sanitized BODY --->");
+    console.log("[v02] " + sanitizedBodyHtml);
+    console.log("[v02] <--- Sanitized BODY");
 
     let promiseSetSubject = makePromiseSetSubject(item, sanitizedSubjectHtml);
     let promiseSetBody = makePromiseSetBody(item, sanitizedBodyHtml);
 
     Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
-      console.info("[ARG] successfully set redacted SUBJECT / BODY:");
+      console.info("[v02] successfully set redacted SUBJECT / BODY:");
       event.completed({
         allowEvent: false,
         errorMessage: "Everything OK, but still don't let you send"
       });
     }).catch((error) => {
-      console.error("[ARG] An error occurred while setting item data:", error);
+      console.error("[v02] An error occurred while setting item data:", error);
       event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
     });
   }).catch((error) => {
-    console.error("[ARG] An error occurred while fetching item data:", error);
+    console.error("[v02] An error occurred while fetching item data:", error);
     event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT, BODY!!!" });
   });
 
@@ -146,6 +146,6 @@ function onMessageSendHandler(event) {
 
 
 
-  console.info("[Commands.js::onMessageSendHandler(100)] Exit!");
+  console.info("[v02 Commands.js::onMessageSendHandler(100)] Exit!");
 }
 
