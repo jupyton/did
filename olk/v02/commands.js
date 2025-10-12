@@ -1,4 +1,4 @@
-const MY_NAME = 'v02 - 009';
+const MY_NAME = 'v02 - 010';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -142,8 +142,8 @@ function onMessageSendHandler(event) {
         },
         body: JSON.stringify({
           postId: 89,
-          name: 'whose name',
-          email: "whose@names.world",
+          name: `whose name [${MY_NAME}]`,
+          email: "whose@name.world",
           body: new Date().toISOString()
         }),
       })
