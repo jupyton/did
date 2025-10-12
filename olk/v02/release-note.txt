@@ -1,6 +1,7 @@
-V01 release does the simple thing
+V02 release does the simple thing
 1. on send, call onMessageSendHandler()
 2. redact NRIC & Card Number
-3. then event.completed() to finish flow
+3. log the finding to RESTFUL API
+4. then event.completed() to finish flow
 
 purposely hard-coded blocking to avoid sending many email during testing

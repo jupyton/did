@@ -9,11 +9,11 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Jupyton</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName           DefaultValue="Simple Add-ins - Test - v02"/>
-  <Description           DefaultValue="Simple Add-ins - Test onSend Only - v02"/>
-  <IconUrl               DefaultValue="https://jupyton.github.io/did/olk/assets/icon-64.png"/>
+  <DisplayName DefaultValue="Simple Add-ins - Test Only"/>
+  <Description DefaultValue="Simple Add-ins - Test onSend Only"/>
+  <IconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-128.png"/>
-  <SupportUrl            DefaultValue="https://www.jupyton.com/help"/>
+  <SupportUrl DefaultValue="https://www.jupyton.com/help"/>
   <AppDomains>
     <AppDomain>https://jupyton.github.io/</AppDomain>
   </AppDomains>
@@ -28,7 +28,7 @@
     <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://jupyton.github.io/did/olk/v02/taskpane.html"/>
+        <SourceLocation DefaultValue="https://jupyton.github.io/did/olk/taskpane.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -64,30 +64,55 @@
               <!-- Identifies the runtime to be used by the add-in (also referenced by the Runtime element). -->
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
+
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="hiddenSmartDialogGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="runRedactionFunction">
+                    <Label resid="redactLabel"/>
+                    <Supertip>
+                      <Title resid="redactTitle"/>
+                      <Description resid="redactDescription"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>redactMessageHandler</FunctionName>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+
+              
           </DesktopFormFactor>
         </Host>
       </Hosts>
       <Resources>
         <bt:Images>
           <bt:Image id="Icon.16x16" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-16.png"/>
-          <bt:Image id="Icon.32x32" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-32.png"/>
-          <bt:Image id="Icon.80x80" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-80.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://jupyton.github.io/did/olk/icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="https://jupyton.github.io/did/olk/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="JSRuntime.Url" DefaultValue="https://jupyton.github.io/did/olk/v02/commands.js"/>
-          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://jupyton.github.io/did/olk/v02/commands.html"/>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://jupyton.github.io/did/olk/v02/taskpane.html"/>
+          <bt:Url id="JSRuntime.Url" DefaultValue="https://jupyton.github.io/did/olk/commands.js"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://jupyton.github.io/did/olk/commands.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://jupyton.github.io/did/olk/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="CategoriesGroupLabel" DefaultValue="[ARG] Outlook Add-ins - Redact Demo - v02"/>
-          <bt:String id="SelectButtonLabel" DefaultValue="[ARG] Select categories"/>
+          <bt:String id="CategoriesGroupLabel" DefaultValue="[ARG-local] Outlook Add-ins - Redact Demo"/>
+          <bt:String id="SelectButtonLabel" DefaultValue="[ARG-local] Select categories"/>
 
           <bt:String id="groupLabel" DefaultValue="Hidden Group"/>
           <bt:String id="redactLabel" DefaultValue="Redact"/>
           <bt:String id="redactTitle" DefaultValue="Redact Email"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="SelectButtonDescription" DefaultValue="[ARG] Opens a task pane to select and apply categories to an email or appointment."/>
+          <bt:String id="SelectButtonDescription" DefaultValue="[ARG-local] Opens a task pane to select and apply categories to an email or appointment."/>
           <bt:String id="redactDescription" DefaultValue="Launch redaction process."/>
         </bt:LongStrings>
       </Resources>

@@ -13,6 +13,7 @@ Office.onReady((info) => {
 });
 
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
+Office.actions.associate("redactMessageHandler", redactMessageHandler);
 
 // Factories
 const makePromiseSetSubject = (mailItem, newSubject) => {
@@ -55,14 +56,14 @@ function redactMessageHandler() {
 function onMessageSendHandler(event) {
   console.info("[Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
-  Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
+Office.context.mailbox.item.notificationMessages.replaceAsync('github-error', {
     type: 'errorMessage',
-    message: "Argentra notificationMessages"
-  }, function (result) {
+    message: "error message"
+  }, function(result) {
   });
 
-
-  const item = Office.context.mailbox.item;
+  
+const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
 
@@ -94,58 +95,61 @@ function onMessageSendHandler(event) {
 
 
 
+    
+    Promise.all([getSubjectPromise, getBodyPromise]).then(([subjectHtml, bodyHtml]) => {
+        subjectHtml = subjectHtml + "";
+        subjectHtml = subjectHtml.trim();
+        bodyHtml = bodyHtml + "";
+        bodyHtml = bodyHtml.trim();
 
-  Promise.all([getSubjectPromise, getBodyPromise]).then(([subjectHtml, bodyHtml]) => {
-    subjectHtml = subjectHtml + "";
-    subjectHtml = subjectHtml.trim();
-    bodyHtml = bodyHtml + "";
-    bodyHtml = bodyHtml.trim();
+        console.log("[ARG] SUBJECT --->");
+        console.log("[ARG] " + subjectHtml);
+        console.log("[ARG] <--- SUBJECT");
 
-    console.log("[ARG] SUBJECT --->");
-    console.log("[ARG] " + subjectHtml);
-    console.log("[ARG] <--- SUBJECT");
+        console.log("[ARG] BODY --->");
+        console.log("[ARG] " + bodyHtml);
+        console.log("[ARG] <--- BODY");
 
-    console.log("[ARG] BODY --->");
-    console.log("[ARG] " + bodyHtml);
-    console.log("[ARG] <--- BODY");
+        sanitizedSubjectHtml = subjectHtml.replace(nricRegex, nricRedacted);
+        sanitizedSubjectHtml = sanitizedSubjectHtml.replace(creditcardRegex, creditcardRedacted);
 
-    sanitizedSubjectHtml = subjectHtml.replace(nricRegex, nricRedacted);
-    sanitizedSubjectHtml = sanitizedSubjectHtml.replace(creditcardRegex, creditcardRedacted);
+        sanitizedBodyHtml = bodyHtml.replace(nricRegex, nricRedacted);
+        sanitizedBodyHtml = sanitizedBodyHtml.replace(creditcardRegex, creditcardRedacted);
 
-    sanitizedBodyHtml = bodyHtml.replace(nricRegex, nricRedacted);
-    sanitizedBodyHtml = sanitizedBodyHtml.replace(creditcardRegex, creditcardRedacted);
+        console.log("[ARG] Sanitized SUBJECT --->");
+        console.log("[ARG] " + sanitizedSubjectHtml);
+        console.log("[ARG] <--- Sanitized SUBJECT");
 
-    console.log("[ARG] Sanitized SUBJECT --->");
-    console.log("[ARG] " + sanitizedSubjectHtml);
-    console.log("[ARG] <--- Sanitized SUBJECT");
+        console.log("[ARG] Sanitized BODY --->");
+        console.log("[ARG] " + sanitizedBodyHtml);
+        console.log("[ARG] <--- Sanitized BODY");
 
-    console.log("[ARG] Sanitized BODY --->");
-    console.log("[ARG] " + sanitizedBodyHtml);
-    console.log("[ARG] <--- Sanitized BODY");
+        let promiseSetSubject = makePromiseSetSubject(item, sanitizedSubjectHtml);
+        let promiseSetBody = makePromiseSetBody(item, sanitizedBodyHtml);
 
-    let promiseSetSubject = makePromiseSetSubject(item, sanitizedSubjectHtml);
-    let promiseSetBody = makePromiseSetBody(item, sanitizedBodyHtml);
-
-    Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
-      console.info("[ARG] successfully set redacted SUBJECT / BODY:");
-      event.completed({
-        allowEvent: false,
-        errorMessage: "Everything OK, but still don't let you send"
-      });
+        Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
+            console.info("[ARG] successfully set redacted SUBJECT / BODY:");
+            event.completed({ 
+              allowEvent: false, 
+              errorMessage: "Everything OK, but still don't let you send",
+              errorMessageMarkdown: "forgetting to include an attachment.\n\n**Tip**: see [Attach files in Outlook]",
+              cancelLabel: "Redact it",
+              commandId: "msgComposeOpenPaneButton"
+            });
+        }).catch((error) => {
+            console.error("[ARG] An error occurred while setting item data:", error);
+            event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
+        });
     }).catch((error) => {
-      console.error("[ARG] An error occurred while setting item data:", error);
-      event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
+        console.error("[ARG] An error occurred while fetching item data:", error);
+        event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT, BODY!!!" });
     });
-  }).catch((error) => {
-    console.error("[ARG] An error occurred while fetching item data:", error);
-    event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT, BODY!!!" });
-  });
 
 
+  
 
+  
 
-
-
-  console.info("[Commands.js::onMessageSendHandler(100)] Exit!");
+  console.info("[Commands.js::onMessageSendHandler()] Exit!");
 }
 
