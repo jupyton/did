@@ -1,4 +1,4 @@
-const MY_NAME = 'v03 - 001';
+const MY_NAME = 'v03 - 002';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
