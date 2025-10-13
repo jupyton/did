@@ -74,6 +74,7 @@ function onMessageSendHandler(event) {
 
   let senderName = 'unknown';
   let senderEmail = 'unknown';
+  console.log(`[v03] Sender details: ${item.sender}`);
   if (item.sender) {
     senderName = item.sender.displayName;
     senderEmail = item.sender.emailAddress;
