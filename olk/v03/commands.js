@@ -59,6 +59,8 @@ function redactMessageHandler() {
 function onMessageSendHandler(event) {
   console.info("[v02 Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
 
+
+
   Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
     type: 'errorMessage',
     message: "Argentra notificationMessages " + MY_NAME
@@ -69,6 +71,17 @@ function onMessageSendHandler(event) {
   const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
+
+  let senderName = 'unknown';
+  let senderEmail = 'unknown';
+  if (item.sender) {
+    senderName = item.sender.displayName;
+    senderEmail = item.sender.emailAddress;
+  }
+
+  console.log(`[v03] Sender Display Name: ${senderName}`);
+  console.log(`[v03] Sender Email Address: ${senderEmail}`);
+
 
   const getSubjectPromise = new Promise((resolve, reject) => {
     console.info("[v03] trying to get subject");
