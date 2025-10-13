@@ -1,4 +1,4 @@
-const MY_NAME = 'v03 - 008';
+const MY_NAME = 'v03 - 009';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -79,34 +79,34 @@ function onMessageSendHandler(event) {
   if (userProfile) {
     const userEmail = userProfile.emailAddress;
     if (userEmail) {
-      console.log(`[v03] Sender identity=[${userEmail}]`);
+      console.info(`[v03] 1. Sender identity=[${userEmail}]`);
     } else {
-      console.log("[v03] Sender email not available.");
+      console.err("[v03] 1. Sender email not available.");
     }
   } else {
-    console.log("[v03] UserProfile not available.");
+    console.err("[v03] 1. UserProfile not available.");
   }
 
   Office.context.mailbox.item.to.getAsync(function (asyncResult) {
     if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
       const msgTo = asyncResult.value;
-      console.log("[v03] Message being sent to:");
+      console.info("[v03] 2. Message being sent to:");
       for (let i = 0; i < msgTo.length; i++) {
-        console.log(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
+        console.info(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
       }
     } else {
-      console.error("[v03] ERROR while trying to get TO field");
+      console.error("[v03] 2. ERROR while trying to get TO field");
       console.error(asyncResult.error);
     }
   });
 
-  console.error("[v03] trying to get FROM field");
+  console.info("[v03] 3. trying to get FROM field");
   Office.context.mailbox.item.from.getAsync(function (asyncResult) {
     if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
       const msgFrom = asyncResult.value;
-      console.log("[v03] from-from-from Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
+      console.info("[v03] 3. from-from-from Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
     } else {
-      console.error("[v03] from-from-from ERROR while trying to get FROM field");
+      console.error("[v03] 3. from-from-from ERROR while trying to get FROM field");
       console.error(asyncResult.error);
     }
   });
