@@ -1,4 +1,4 @@
-const MY_NAME = 'v02 - 010';
+const MY_NAME = 'v03 - 001';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -57,7 +57,7 @@ function redactMessageHandler() {
 
 
 function onMessageSendHandler(event) {
-  console.info("[v02 Commands.js::onMessageSendHandler()] Received OnMessageSend event!");
+  console.info("[v03] Commands.js::onMessageSendHandler(): Received OnMessageSend event!");
 
 
 
@@ -75,6 +75,7 @@ function onMessageSendHandler(event) {
   // sender
   let senderName = 'unknown';
   let senderEmail = 'unknown';
+
   console.log(`[v03] Sender details: ${item.sender}`);
   if (item.sender) {
     senderName = item.sender.displayName;
@@ -86,7 +87,7 @@ function onMessageSendHandler(event) {
 
   // from
   console.log(`[v03] From details: ${item.from}`);
-  if (item.sender) {
+  if (item.from) {
     senderName = item.from.displayName;
     senderEmail = item.from.emailAddress;
   }
