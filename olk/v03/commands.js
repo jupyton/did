@@ -1,4 +1,4 @@
-const MY_NAME = 'v03 - 005';
+const MY_NAME = 'v03 - 006';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -87,18 +87,29 @@ function onMessageSendHandler(event) {
     console.log("[v03] UserProfile not available.");
   }
 
-  Office.context.mailbox.item.to.getAsync(function(asyncResult) {
-  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-    const msgTo = asyncResult.value;
-    console.log("[v03] Message being sent to:");
-    for (let i = 0; i < msgTo.length; i++) {
-      console.log(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
+  Office.context.mailbox.item.to.getAsync(function (asyncResult) {
+    if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+      const msgTo = asyncResult.value;
+      console.log("[v03] Message being sent to:");
+      for (let i = 0; i < msgTo.length; i++) {
+        console.log(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
+      }
+    } else {
+      console.error("[v03] ERROR while trying to get TO field");
+      console.error(asyncResult.error);
     }
-  } else {
-    console.error("[v03] ERROR while trying to get TO field");
-    console.error(asyncResult.error);
-  }
-});
+  });
+
+  Office.context.mailbox.item.from.getAsync(function (asyncResult) {
+    if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+      const msgFrom = asyncResult.value;
+      console.log("[v03] Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
+    } else {
+      console.error("[v03] ERROR while trying to get FROM field");
+      console.error(asyncResult.error);
+    }
+  });
+
   // ======== get Identity
 
 
