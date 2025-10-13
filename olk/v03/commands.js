@@ -1,4 +1,4 @@
-const MY_NAME = 'v03 - 003';
+const MY_NAME = 'v03 - 004';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -79,19 +79,24 @@ function onMessageSendHandler(event) {
   if (userProfile) {
     const userEmail = userProfile.emailAddress;
     if (userEmail) {
-      console.log(`[v03] The email address of the user composing the email is: ${userEmail}`);
+      console.log(`[v03] Sender identity=[${userEmail}]`);
     } else {
-      console.log("[v03] emailAddress not available.");
+      console.log("[v03] Sender email not available.");
     }
   } else {
     console.log("[v03] UserProfile not available.");
   }
 
-  if (userProfile && userProfile.emailAddress) {
-    const userEmail = userProfile.emailAddress;
-    console.log(`The email address of the user composing the email is: ${userEmail}`);
+  const to = Office.context.mailbox.item.to;
+  if (to) {
+    const toEmail = to.emailAddress;
+    if (toEmail) {
+      console.log(`[v03] to email=[${userEmail}]`);
+    } else {
+      console.log("[v03] to email not available.");
+    }
   } else {
-    console.log("UserProfile or emailAddress is not available.");
+    console.log("[v03] to not available.");
   }
   // ======== get Identity
 
