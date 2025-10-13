@@ -102,7 +102,7 @@ function onMessageSendHandler(event) {
     senderEmail = 'not present';
   }
 
-  console.log(`[v03] From Display Name: ${senderName}`);
+  console.log(`[v03] From Display Name: ${Office.context.mailbox.userProfile.emailAddress}`);
   console.log(`[v03] From Email Address: ${senderEmail}`);
 
 
