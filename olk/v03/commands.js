@@ -1,4 +1,4 @@
-const MY_NAME = 'v03 - 006';
+const MY_NAME = 'v03 - 007';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -103,9 +103,9 @@ function onMessageSendHandler(event) {
   Office.context.mailbox.item.from.getAsync(function (asyncResult) {
     if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
       const msgFrom = asyncResult.value;
-      console.log("[v03] Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
+      console.log("[v03] from-from-from Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
     } else {
-      console.error("[v03] ERROR while trying to get FROM field");
+      console.error("[v03] from-from-from ERROR while trying to get FROM field");
       console.error(asyncResult.error);
     }
   });
