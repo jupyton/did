@@ -80,20 +80,30 @@ function onMessageSendHandler(event) {
   if (item.sender) {
     senderName = item.sender.displayName;
     senderEmail = item.sender.emailAddress;
+  } else {
+    senderName = 'not present';
+    senderEmail = 'not present';
   }
 
   console.log(`[v03] Sender Display Name: ${senderName}`);
   console.log(`[v03] Sender Email Address: ${senderEmail}`);
 
   // from
+  senderName = 'unknown';
+  senderEmail = 'unknown';
+
   console.log(`[v03] From details: ${item.from}`);
   if (item.from) {
+    console.log(`[v03] From details: ${JSON.stringify(item.from)}`);
     senderName = item.from.displayName;
     senderEmail = item.from.emailAddress;
+  } else {
+    senderName = 'not present';
+    senderEmail = 'not present';
   }
 
-  console.log(`[v03] Sender Display Name: ${senderName}`);
-  console.log(`[v03] Sender Email Address: ${senderEmail}`);
+  console.log(`[v03] From Display Name: ${senderName}`);
+  console.log(`[v03] From Email Address: ${senderEmail}`);
 
 
   const getSubjectPromise = new Promise((resolve, reject) => {
