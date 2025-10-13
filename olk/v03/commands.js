@@ -1,4 +1,4 @@
-const MY_NAME = 'v03 - 007';
+const MY_NAME = 'v03 - 008';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -12,7 +12,7 @@ const creditcardRedacted = 'xxxx-xxxx-xxxx-xxxx';
 
 
 Office.onReady((info) => {
-  console.info('[v03] Commands.js::onReady()');
+  console.info(`[v03] ${MY_NAME} Commands.js::onReady()`);
 });
 
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
@@ -100,6 +100,7 @@ function onMessageSendHandler(event) {
     }
   });
 
+  console.error("[v03] trying to get FROM field");
   Office.context.mailbox.item.from.getAsync(function (asyncResult) {
     if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
       const msgFrom = asyncResult.value;
