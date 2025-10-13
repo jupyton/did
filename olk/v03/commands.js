@@ -72,38 +72,29 @@ function onMessageSendHandler(event) {
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
 
-  // sender
-  let senderName = 'unknown';
-  let senderEmail = 'unknown';
+  
 
-  console.log(`[v03] Sender details: ${item.sender}`);
-  if (item.sender) {
-    senderName = item.sender.displayName;
-    senderEmail = item.sender.emailAddress;
+  // ======== get identity
+  const userProfile = Office.context.mailbox.userProfile;
+  if (userProfile) {
+    const userEmail = userProfile.emailAddress;
+    if (userEmail) {
+      console.log(`[v03] The email address of the user composing the email is: ${userEmail}`);
+    } else {
+      console.log("[v03] emailAddress not available.");
+    }
   } else {
-    senderName = 'not present';
-    senderEmail = 'not present';
+    console.log("[v03] UserProfile not available.");
   }
 
-  console.log(`[v03] Sender Display Name: ${senderName}`);
-  console.log(`[v03] Sender Email Address: ${senderEmail}`);
-
-  // from
-  senderName = 'unknown';
-  senderEmail = 'unknown';
-
-  console.log(`[v03] From details: ${item.from}`);
-  if (item.from) {
-    console.log(`[v03] From details: ${JSON.stringify(item.from)}`);
-    senderName = item.from.displayName;
-    senderEmail = item.from.emailAddress;
+  if (userProfile && userProfile.emailAddress) {
+    const userEmail = userProfile.emailAddress;
+    console.log(`The email address of the user composing the email is: ${userEmail}`);
   } else {
-    senderName = 'not present';
-    senderEmail = 'not present';
+    console.log("UserProfile or emailAddress is not available.");
   }
+  // ======== get Identity
 
-  console.log(`[v03] From Display Name: ${Office.context.mailbox.userProfile.emailAddress}`);
-  console.log(`[v03] From Email Address: ${senderEmail}`);
 
 
   const getSubjectPromise = new Promise((resolve, reject) => {
