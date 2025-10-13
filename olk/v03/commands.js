@@ -72,12 +72,23 @@ function onMessageSendHandler(event) {
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
 
+  // sender
   let senderName = 'unknown';
   let senderEmail = 'unknown';
   console.log(`[v03] Sender details: ${item.sender}`);
   if (item.sender) {
     senderName = item.sender.displayName;
     senderEmail = item.sender.emailAddress;
+  }
+
+  console.log(`[v03] Sender Display Name: ${senderName}`);
+  console.log(`[v03] Sender Email Address: ${senderEmail}`);
+
+  // from
+  console.log(`[v03] From details: ${item.from}`);
+  if (item.sender) {
+    senderName = item.from.displayName;
+    senderEmail = item.from.emailAddress;
   }
 
   console.log(`[v03] Sender Display Name: ${senderName}`);
