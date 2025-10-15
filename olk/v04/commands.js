@@ -20,13 +20,13 @@ Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
 // Factories
 const makePromiseSetSubject = (mailItem, newSubject) => {
   return new Promise((resolve, reject) => {
-    console.info("[v04] trying to set subject to [" + newSubject + "]");
+    console.info("[v04] create PROMISE to SET SUBJECT to [" + newSubject + "]");
     mailItem.subject.setAsync(newSubject, { coercionType: Office.CoercionType.subjectHtml }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.info("[v04] set subject OK : [" + setAsyncResult.value + "]");
+        console.info("[v04] SET SUBJECT OK : [" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
-        console.info("[v04] set subject BAD : " + setAsyncResult.error.message + "]");
+        console.info("[v04] SET SUBJECT BAD : " + setAsyncResult.error.message + "]");
         reject(setAsyncResult.error.message);
       }
     });
@@ -35,13 +35,13 @@ const makePromiseSetSubject = (mailItem, newSubject) => {
 
 const makePromiseSetBody = (mailItem, newBody) => {
   return new Promise((resolve, reject) => {
-    console.info("[v04] trying to set body to [" + newBody + "]");
+    console.info("[v04] create PROMISE to SET BODY to [" + newBody + "]");
     mailItem.body.setAsync(newBody, { coercionType: Office.CoercionType.Html }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.info("[v04] set body OK : [" + setAsyncResult.value + "]");
+        console.info("[v04] SET BODY OK : [" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
-        console.info("[v04] set body BAD : [" + setAsyncResult.error.message + "]");
+        console.info("[v04] SET BODY BAD : [" + setAsyncResult.error.message + "]");
         reject(setAsyncResult.error.message);
       }
     });
@@ -49,106 +49,149 @@ const makePromiseSetBody = (mailItem, newBody) => {
 };
 
 
-// event handler
-function redactMessageHandler() {
-  console.info("[Commands.js::redactMessageHandler()] being called!");
-}
+const makePromiseGetSubject = (mailItem) => {
+  return new Promise((resolve, reject) => {
+    console.info("[v04] create PROMISE to GET SUBJECT");
+    mailItem.subject.getAsync((asyncResult) => {
+      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+        console.info("[v04] GET SUBJECT OK");
+        resolve(asyncResult.value);
+      } else {
+        console.info("[v04] GET SUBJECT BAD");
+        reject(asyncResult.error.message);
+      }
+    });
+  });
+};
 
+const makePromiseGetBody = (mailItem) => {
+  return new Promise((resolve, reject) => {
+    console.info("[v04] create PROMISE to GET BODY");
+    mailItem.body.getAsync(Office.CoercionType.Html, (asyncResult) => {
+      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+        console.info("[v04] GET BODY OK");
+        resolve(asyncResult.value);
+      } else {
+        console.info("[v04] GET BODY BAD");
+        reject(asyncResult.error.message);
+      }
+    });
+  });
+};
+
+const makePromiseGetTo = (mailItem) => {
+  return new Promise((resolve, reject) => {
+    console.info("[v04] reate PROMISE to GET TO");
+    mailItem.to.getAsync((asyncResult) => {
+      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+        console.info("[v04] GET TO OK");
+        resolve(asyncResult.value);
+      } else {
+        console.info("[v04] GET TO BAD");
+        reject(asyncResult.error.message);
+      }
+    });
+  });
+};
+
+const makePromiseGetFrom = (mailItem) => {
+  return new Promise((resolve, reject) => {
+    console.info("[v04] reate PROMISE to GET FROM");
+    mailItem.from.getAsync((asyncResult) => {
+      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+        console.info("[v04] GET FROM OK");
+        resolve(asyncResult.value);
+      } else {
+        console.info("[v04] GET FROM BAD");
+        reject(asyncResult.error.message);
+      }
+    });
+  });
+};
 
 
 function onMessageSendHandler(event) {
   console.info("[v04] Commands.js::onMessageSendHandler(): Received OnMessageSend event!");
 
 
-
-  Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
-    type: 'errorMessage',
-    message: "Argentra notificationMessages " + MY_NAME
-  }, function (result) {
-  });
+  //Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
+  //  type: 'errorMessage',
+  //  message: "Argentra notificationMessages " + MY_NAME
+  //}, function (result) {
+  //});
 
 
   const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
 
+  let mailboxEmail = "unknown";
+
   
 
-  // ======== get identity
+  // ======== get MAILBOX
   const userProfile = Office.context.mailbox.userProfile;
   if (userProfile) {
-    const userEmail = userProfile.emailAddress;
-    if (userEmail) {
-      console.info(`[v04] 1. Sender identity=[${userEmail}]`);
+    const mailboxEmail = userProfile.emailAddress;
+    if (mailboxEmail) {
+      console.info(`[v04] SENDER MAILBOX=[${mailboxEmail}]`);
     } else {
-      console.err("[v04] 1. Sender email not available.");
+      console.err("[v04] SENDER MAILBOX not available.");
     }
   } else {
-    console.err("[v04] 1. UserProfile not available.");
+    console.err("[v04] SENDER MAILBOX not available.");
   }
 
-  Office.context.mailbox.item.to.getAsync(function (asyncResult) {
-    if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-      const msgTo = asyncResult.value;
-      console.info("[v04] 2. Message being sent to:");
-      for (let i = 0; i < msgTo.length; i++) {
-        console.info(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
-      }
-    } else {
-      console.error("[v04] 2. ERROR while trying to get TO field");
-      console.error(asyncResult.error);
-    }
-  });
+  //Office.context.mailbox.item.to.getAsync(function (asyncResult) {
+  //  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+  //    const msgTo = asyncResult.value;
+  //    console.info("[v04] 2. Message being sent to:");
+  //    for (let i = 0; i < msgTo.length; i++) {
+  //      console.info(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
+  //    }
+  //  } else {
+  //    console.error("[v04] 2. ERROR while trying to get TO field");
+  //    console.error(asyncResult.error);
+  //  }
+  //});
 
-  console.info("[v04] 3. trying to get FROM field");
-  Office.context.mailbox.item.from.getAsync(function (asyncResult) {
-    if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-      const msgFrom = asyncResult.value;
-      console.info("[v04] 3. from-from-from Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
-    } else {
-      console.error("[v04] 3. from-from-from ERROR while trying to get FROM field");
-      console.error(asyncResult.error);
-    }
-  });
+  //console.info("[v04] 3. trying to get FROM field");
+  //Office.context.mailbox.item.from.getAsync(function (asyncResult) {
+  //  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
+  //    const msgFrom = asyncResult.value;
+  //    console.info("[v04] 3. from-from-from Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
+  //  } else {
+  //    console.error("[v04] 3. from-from-from ERROR while trying to get FROM field");
+  //    console.error(asyncResult.error);
+  //  }
+  //});
 
   // ======== get Identity
 
 
 
-  const getSubjectPromise = new Promise((resolve, reject) => {
-    console.info("[v04] trying to get subject");
-    item.subject.getAsync((asyncResult) => {
-      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.info("[v04] fetch subject OK");
-        resolve(asyncResult.value);
-      } else {
-        console.info("[v04] fetch subject BAD");
-        reject(asyncResult.error.message);
-      }
-    });
-  });
+  const getToPromise = makePromiseGetTo(item);
+  const getFromPromise = makePromiseGetFrom(item);
+  const getSubjectPromise = makePromiseGetSubject(item);
+  const getBodyPromise = makePromiseGetBody(item);
 
-  const getBodyPromise = new Promise((resolve, reject) => {
-    console.info("[v04] trying to get body");
-    item.body.getAsync(Office.CoercionType.Html, (asyncResult) => {
-      if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.info("[v04] fetch body OK");
-        resolve(asyncResult.value);
-      } else {
-        console.info("[v04] fetch body BAD");
-        reject(asyncResult.error.message);
-      }
-    });
-  });
-
-
-
-
-  Promise.all([getSubjectPromise, getBodyPromise]).then(([subjectHtml, bodyHtml]) => {
+  Promise.all([getToPromise, getFromPromise, getSubjectPromise, getBodyPromise])
+  .then(([to, from, subjectHtml, bodyHtml]) => {
     subjectHtml = subjectHtml + "";
     subjectHtml = subjectHtml.trim();
     bodyHtml = bodyHtml + "";
     bodyHtml = bodyHtml.trim();
+
+
+    console.info("[v04] FROM --->");
+    console.info(`[v04]  - [${from.displayName} - ${from.emailAddress}]`);
+    console.info("[v04] <--- FROM");
+
+    console.info("[v04] TO --->");
+    for (let i = 0; i < to.length; i++) {
+      console.info(`[v04]  - [${to[i].displayName} - ${to[i].emailAddress}]`);
+    }
+    console.info("[v04] <--- TO");
 
     console.info("[v04] SUBJECT --->");
     console.info("[v04] " + subjectHtml);
@@ -177,7 +220,6 @@ function onMessageSendHandler(event) {
 
     Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
       console.info("[v04] successfully set redacted SUBJECT / BODY:");
-
 
       // POST to LOG Server
       fetch('https://jsonplaceholder.typicode.com/comments', {
@@ -232,11 +274,11 @@ function onMessageSendHandler(event) {
       
     }).catch((error) => {
       console.error("[v04] An error occurred while setting item data:", error);
-      event.completed({ allowEvent: false, errorMessage: "Not able to set SUBJECT, BODY!!!" });
+      event.completed({ allowEvent: false, errorMessage: "Not able to set TO, FROM, SUBJECT, BODY!!!" });
     });
   }).catch((error) => {
     console.error("[v04] An error occurred while fetching item data:", error);
-    event.completed({ allowEvent: false, errorMessage: "Not able to retrieve SUBJECT, BODY!!!" });
+    event.completed({ allowEvent: false, errorMessage: "Not able to retrieve TO, FROM, SUBJECT, BODY!!!" });
   });
 
 
