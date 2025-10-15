@@ -3,6 +3,9 @@ V03 release does the things below
 2. redact NRIC & Card Number
 3. log the finding to RESTFUL API
 4. then event.completed() to finish flow
-5. all changed to promise
+5. add a info-only taskpane
+6. partial redact
+7. try to use Luhn to identify fake NRIC (limit to 3)
+
 
 purposely hard-coded blocking to avoid sending many email during testing

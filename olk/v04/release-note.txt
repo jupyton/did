@@ -3,6 +3,6 @@ V03 release does the things below
 2. redact NRIC & Card Number
 3. log the finding to RESTFUL API
 4. then event.completed() to finish flow
-5. add a info-only taskpane
+5. log sending to own API server
 
 purposely hard-coded blocking to avoid sending many email during testing
