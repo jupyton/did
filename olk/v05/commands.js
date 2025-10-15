@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 001';
+const MY_NAME = 'v05 - 002';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
@@ -186,12 +186,12 @@ function onMessageSendHandler(event) {
     sanitizedBodyHtml = bodyHtml.replace(nricRegex, nricRedacted);
 
     // Redacting Credit Card Numbers
-    sanitizedSubjectHtml = sanitizedSubjectHtml.replaceAll(creditCardRegex, (match) => { 
+    sanitizedSubjectHtml = sanitizedSubjectHtml.replaceAll(regexCreditCard, (match) => { 
       const digits = match.replace(/[- ]/g, '');
       const lastFour = digits.slice(-4);
       return `****-****-****-${lastFour}`;
     });
-    sanitizedBodyHtml = sanitizedBodyHtml.replaceAll(creditCardRegex, (match) => { 
+    sanitizedBodyHtml = sanitizedBodyHtml.replaceAll(regexCreditCard, (match) => { 
       const digits = match.replace(/[- ]/g, '');
       const lastFour = digits.slice(-4);
       return `****-****-****-${lastFour}`;
