@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 003';
+const MY_NAME = 'v05 - 005';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
@@ -272,7 +272,11 @@ function onMessageSendHandler(event) {
     Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
       console.info("[ARG] successfully set redacted SUBJECT / BODY:");
 
-      let nounce = Date().getTime();
+      const max = 1000000000000;
+      const randomInteger = Math.round(Math.random() * max) + max;
+      const ut = Date().getTime();
+      count nounce = randomInteger + ut;
+
       // POST to LOG Server
       let logMessage = {
         mailbox: mailboxEmail,
