@@ -142,31 +142,6 @@ function onMessageSendHandler(event) {
     console.err("[v04] SENDER MAILBOX not available.");
   }
 
-  //Office.context.mailbox.item.to.getAsync(function (asyncResult) {
-  //  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-  //    const msgTo = asyncResult.value;
-  //    console.info("[v04] 2. Message being sent to:");
-  //    for (let i = 0; i < msgTo.length; i++) {
-  //      console.info(msgTo[i].displayName + " (" + msgTo[i].emailAddress + ")");
-  //    }
-  //  } else {
-  //    console.error("[v04] 2. ERROR while trying to get TO field");
-  //    console.error(asyncResult.error);
-  //  }
-  //});
-
-  //console.info("[v04] 3. trying to get FROM field");
-  //Office.context.mailbox.item.from.getAsync(function (asyncResult) {
-  //  if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
-  //    const msgFrom = asyncResult.value;
-  //    console.info("[v04] 3. from-from-from Message FROM: " + msgFrom.displayName + " (" + msgFrom.emailAddress + ")");
-  //  } else {
-  //    console.error("[v04] 3. from-from-from ERROR while trying to get FROM field");
-  //    console.error(asyncResult.error);
-  //  }
-  //});
-
-  // ======== get Identity
 
 
 
@@ -182,6 +157,9 @@ function onMessageSendHandler(event) {
     bodyHtml = bodyHtml + "";
     bodyHtml = bodyHtml.trim();
 
+    console.info("[v04] MAILBOX --->");
+    console.info(`[v04]  - [${mailboxEmail}]`);
+    console.info("[v04] <--- MAILBOX");
 
     console.info("[v04] FROM --->");
     console.info(`[v04]  - [${from.displayName} - ${from.emailAddress}]`);
