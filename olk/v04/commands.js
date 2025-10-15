@@ -1,4 +1,4 @@
-const MY_NAME = 'v04 - 006';
+const MY_NAME = 'v04 - 007';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -222,7 +222,7 @@ function onMessageSendHandler(event) {
 
           if (response.ok) {
             console.info(`[v04] POST to LOG - API Response OK]`);
-            console.info(`[v04] POST to LOG - API OK, DATA JSON=[${JSON.stringify(data)}]`);
+            //console.info(`[v04] POST to LOG - API OK, DATA JSON=[${JSON.stringify(data)}]`);
 
             Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
               type: 'errorMessage',
