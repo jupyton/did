@@ -1,4 +1,4 @@
-const MY_NAME = 'v04 - 003';
+const MY_NAME = 'v04 - 004';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -124,7 +124,6 @@ function onMessageSendHandler(event) {
   const item = Office.context.mailbox.item;
   let sanitizedSubjectHtml = "";
   let sanitizedBodyHtml = "";
-
   let mailboxEmail = "unknown";
 
   
@@ -132,7 +131,7 @@ function onMessageSendHandler(event) {
   // ======== get MAILBOX
   const userProfile = Office.context.mailbox.userProfile;
   if (userProfile) {
-    const mailboxEmail = userProfile.emailAddress;
+    mailboxEmail = userProfile.emailAddress;
     if (mailboxEmail) {
       console.info(`[v04] SENDER MAILBOX=[${mailboxEmail}]`);
     } else {
