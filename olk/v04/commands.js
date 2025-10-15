@@ -1,4 +1,4 @@
-const MY_NAME = 'v04 - 005';
+const MY_NAME = 'v04 - 006';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -206,7 +206,7 @@ function onMessageSendHandler(event) {
         subject: subjectHtml,
         no_of_card: 5,
         no_of_nric: 10,
-        random: new Date().toISOString()
+        nounce: new Date().toISOString()
       };
 
       fetch('https://demo-api.consentrade.io/api/v1/income', {
@@ -220,29 +220,36 @@ function onMessageSendHandler(event) {
         .then(response => {
           console.info(`[v04] POST to LOG - fetch() response, STATUS=[${response.statusText}]`);
 
-          if (!response.ok) {
-            console.error(`[v04] POST to LOG - API failed, STATUS=[${response.statusText}]`);
+          if (response.ok) {
+            console.info(`[v04] POST to LOG - API Response OK]`);
+            console.info(`[v04] POST to LOG - API OK, DATA JSON=[${JSON.stringify(data)}]`);
+
+            Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
+              type: 'errorMessage',
+              message: `Everything OK, but still don't let you send [${MY_NAME}]`
+            }, function (result) {
+            });
+
+            event.completed({
+              allowEvent: false,
+              errorMessage: "Everything OK, but still don't let you send"
+            });
+
+          } else {
+            console.error(`[v04] POST to LOG - API Response failed]`);
             event.completed({ allowEvent: false, errorMessage: "Send LOG failed on API" });
+
+            Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
+              type: 'errorMessage',
+              message: `Send LOG failed on API [${MY_NAME}]`
+            }, function (result) {
+            });
+
+            event.completed({
+              allowEvent: false,
+              errorMessage: "Send LOG failed on API"
+            });
           }
-
-          console.info(`[v04] POST to LOG - API OK, STATUS=[${response.statusText}]`);
-
-          return response.json();
-        })
-        .then(data => {
-          console.info(`[v04] POST to LOG - API OK, DATA=[${data}]`);
-          console.info(`[v04] POST to LOG - API OK, DATA JSON=[${JSON.stringify(data)}]`);
-
-          Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
-            type: 'errorMessage',
-            message: `Everything OK, but still don't let you send [${MY_NAME}]`
-          }, function (result) {
-          });
-
-          event.completed({
-            allowEvent: false,
-            errorMessage: "Everything OK, but still don't let you send"
-          });
         })
         .catch(error => {
           console.error("[v04] POST to LOG - NETWORK failed :", error);
