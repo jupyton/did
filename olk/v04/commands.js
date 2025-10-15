@@ -23,7 +23,7 @@ const makePromiseSetSubject = (mailItem, newSubject) => {
     console.info("[v04] create PROMISE to SET SUBJECT to [" + newSubject + "]");
     mailItem.subject.setAsync(newSubject, { coercionType: Office.CoercionType.subjectHtml }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.info("[v04] SET SUBJECT OK : [" + setAsyncResult.value + "]");
+        console.info("[v04] SET SUBJECT OK : asyncResult-Value=[" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
         console.info("[v04] SET SUBJECT BAD : " + setAsyncResult.error.message + "]");
@@ -38,7 +38,7 @@ const makePromiseSetBody = (mailItem, newBody) => {
     console.info("[v04] create PROMISE to SET BODY to [" + newBody + "]");
     mailItem.body.setAsync(newBody, { coercionType: Office.CoercionType.Html }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.info("[v04] SET BODY OK : [" + setAsyncResult.value + "]");
+        console.info("[v04] SET BODY OK : asyncResult-Value=[" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
         console.info("[v04] SET BODY BAD : [" + setAsyncResult.error.message + "]");
@@ -81,7 +81,7 @@ const makePromiseGetBody = (mailItem) => {
 
 const makePromiseGetTo = (mailItem) => {
   return new Promise((resolve, reject) => {
-    console.info("[v04] reate PROMISE to GET TO");
+    console.info("[v04] create PROMISE to GET TO");
     mailItem.to.getAsync((asyncResult) => {
       if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
         console.info("[v04] GET TO OK");
@@ -96,7 +96,7 @@ const makePromiseGetTo = (mailItem) => {
 
 const makePromiseGetFrom = (mailItem) => {
   return new Promise((resolve, reject) => {
-    console.info("[v04] reate PROMISE to GET FROM");
+    console.info("[v04] create PROMISE to GET FROM");
     mailItem.from.getAsync((asyncResult) => {
       if (asyncResult.status === Office.AsyncResultStatus.Succeeded) {
         console.info("[v04] GET FROM OK");
@@ -235,7 +235,7 @@ function onMessageSendHandler(event) {
         }),
       })
         .then(response => {
-          console.info(`[v04] in fetch() response, STATUS=[${response.statusText}]`);
+          console.info(`[v04] POST to LOG - fetch() response, STATUS=[${response.statusText}]`);
 
           if (!response.ok) {
             console.error(`[v04] POST to LOG - API failed, STATUS=[${response.statusText}]`);
