@@ -272,6 +272,7 @@ function onMessageSendHandler(event) {
     Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
       console.info("[ARG] successfully set redacted SUBJECT / BODY:");
 
+      let nounce = Date().getTime();
       // POST to LOG Server
       let logMessage = {
         mailbox: mailboxEmail,
@@ -280,7 +281,7 @@ function onMessageSendHandler(event) {
         subject: subjectHtml,
         no_of_card: 5,
         no_of_nric: 10,
-        nounce: new Date().toISOString()
+        nounce: nounce
       };
 
       fetch('https://demo-api.consentrade.io/api/v1/income', {
