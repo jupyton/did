@@ -4,8 +4,10 @@ V03 release does the things below
 3. log the finding to RESTFUL API
 4. then event.completed() to finish flow
 5. add a info-only taskpane
-6. partial redact
-7. try to use Luhn to identify fake NRIC (limit to 3)
+6. partial redact rules
+  6.1. all credit card detected will partial redact and keep last 4 digits only
+  6.2. NRIC will keep 3 digits and check coded
+  6.3. only correct check code will be redacted, wrong check code skip (no action)
 
 
 purposely hard-coded blocking to avoid sending many email during testing

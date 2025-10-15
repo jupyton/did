@@ -1,7 +1,8 @@
-const MY_NAME = 'v05 - 002';
+const MY_NAME = 'v05 - 003';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
+const regexNRIC = /\b([SFTGM])(\d{7})([A-Z])\b/gi;
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
 const nricRegex = /[SFTG]\d{7}[A-Z]/gm;
@@ -18,6 +19,45 @@ Office.onReady((info) => {
 });
 
 Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
+
+// validate NRIC checksum
+function validateChecksum(match, prefix, digits, checksum) {
+  const weights = [2, 7, 6, 5, 4, 3, 2];
+  const nricChecksum = ['J', 'Z', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A'];
+  const finChecksum = ['X', 'W', 'U', 'T', 'R', 'Q', 'P', 'N', 'M', 'L', 'K'];
+
+  prefix = prefix.toUpperCase();
+  checksum = checksum.toUpperCase();
+
+  let sum = 0;
+  for (let i=0; i < digits.length; i++) {
+    sum += digits[i] * weights[i];
+  }
+
+  if (prefix === 'T' || prefix === 'G') {
+    sum += 4;
+  } else if (prefix === 'M') {
+    sum += 3;
+  }
+
+  const remainder = sum % 11;
+
+  let isValid = false;
+  if (prefix === 'S' || prefix === 'T') {
+    if (checksum === nricChecksum[remainder]) {
+        isValid = true;
+    }
+  } else if (prefix === 'F' || prefix === 'G' || prefix === 'M') {
+    if (checksum === finChecksum[remainder]) {
+        isValid = true;
+    }
+  }
+
+  console.log(`[validateChecksum] - pass-in [${prefix}, ${digits}, ${checksum}], calculated=[${finChecksum[remainder]}], result=[${isValid}]`);
+
+  return isValid;
+}
+
 
 // Factories
 const makePromiseSetSubject = (mailItem, newSubject) => {
@@ -182,8 +222,28 @@ function onMessageSendHandler(event) {
 
 
     // Redacting NRIC
-    sanitizedSubjectHtml = subjectHtml.replace(nricRegex, nricRedacted);
-    sanitizedBodyHtml = bodyHtml.replace(nricRegex, nricRedacted);
+    sanitizedSubjectHtml = subjectHtml.replaceAll(regexNRIC, (match, prefix, digits, checksum) => {
+      console.log(`checking - match=[${match}], prefix=[${prefix}], digits=[${digits}], checksum=[${checksum}]`);
+      const isValid = validateChecksum(match, prefix, digits, checksum);
+
+      if (isValid) {
+        const redactedDigits = digits.slice(0, 4).replace(/\d/g, 'x') + digits.slice(4);
+        return prefix + redactedDigits + checksum;
+      }
+
+      return match;
+    });
+    sanitizedBodyHtml = bodyHtml.replaceAll(regexNRIC, (match, prefix, digits, checksum) => {
+      console.log(`checking - match=[${match}], prefix=[${prefix}], digits=[${digits}], checksum=[${checksum}]`);
+      const isValid = validateChecksum(match, prefix, digits, checksum);
+
+      if (isValid) {
+        const redactedDigits = digits.slice(0, 4).replace(/\d/g, 'x') + digits.slice(4);
+        return prefix + redactedDigits + checksum;
+      }
+
+      return match;
+    });
 
     // Redacting Credit Card Numbers
     sanitizedSubjectHtml = sanitizedSubjectHtml.replaceAll(regexCreditCard, (match) => { 
