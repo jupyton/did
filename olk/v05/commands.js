@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 006';
+const MY_NAME = 'v05 - 007';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
@@ -274,7 +274,7 @@ function onMessageSendHandler(event) {
 
       const max = 1000000000000;
       const randomInteger = Math.round(Math.random() * max) + max;
-      const ut = Date().getTime();
+      const ut = new Date().getTime();
       const nounce = randomInteger + ut;
 
       // POST to LOG Server
