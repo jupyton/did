@@ -1,4 +1,4 @@
-const MY_NAME = 'v04 - 004';
+const MY_NAME = 'v04 - 005';
 
 
 const ssnRegex = /\b(\d{3}-\d{2}-\d{4}|\d{9})\b/g;
@@ -199,17 +199,23 @@ function onMessageSendHandler(event) {
       console.info("[v04] successfully set redacted SUBJECT / BODY:");
 
       // POST to LOG Server
-      fetch('https://jsonplaceholder.typicode.com/comments', {
+      let logMessage = {
+        mailbox: mailboxEmail,
+        from: from,
+        to: to,
+        subject: subjectHtml,
+        no_of_card: 5,
+        no_of_nric: 10,
+        random: new Date().toISOString()
+      };
+
+      fetch('https://demo-api.consentrade.io/api/v1/income', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'x-api-key': '9f4e1c3b7a6dbe2a4d85a9e7f1c23d9096a8b1f3c4d7e2a9c0b4d8f2e5a1c6b9'
         },
-        body: JSON.stringify({
-          postId: 89,
-          name: `whose name [${MY_NAME}]`,
-          email: "whose@name.world",
-          body: new Date().toISOString()
-        }),
+        body: JSON.stringify(logMessage),
       })
         .then(response => {
           console.info(`[v04] POST to LOG - fetch() response, STATUS=[${response.statusText}]`);
