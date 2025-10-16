@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 010';
+const MY_NAME = 'v05 - 011';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
@@ -285,7 +285,7 @@ function onMessageSendHandler(event) {
         subject: subjectHtml,
         no_of_card: 5,
         no_of_nric: 10,
-        datetime: new Date().toLocaleString(),
+        datetime: new Date().toLocaleString('en-SG', {timeZone: 'Asia/Singapore',}),
         nounce: nounce
       };
 
