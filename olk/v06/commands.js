@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 012';
+const MY_NAME = 'v06 - 001';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
