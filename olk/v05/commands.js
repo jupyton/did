@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 007';
+const MY_NAME = 'v05 - 008';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
@@ -305,12 +305,12 @@ function onMessageSendHandler(event) {
 
             Office.context.mailbox.item.notificationMessages.replaceAsync('redacter', {
               type: 'errorMessage',
-              message: `Everything OK, but still don't let you send [${MY_NAME}]`
+              message: `Everything OK.d [${MY_NAME}]`
             }, function (result) {
             });
 
             event.completed({
-              allowEvent: false,
+              allowEvent: true,
               errorMessage: "Everything OK, but still don't let you send"
             });
 
