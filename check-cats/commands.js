@@ -293,7 +293,7 @@ function checkAppliedCategories(event, detectedWords) {
       console.log(asyncResult.error.message);
       sendEvent.completed({
         allowEvent: false,
-        errorMessage: "Failed to check categories applied to the item.",
+        errorMessage: "{1001} Failed to check categories applied to the item.",
       });
       return;
     }
