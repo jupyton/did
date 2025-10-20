@@ -1,9 +1,7 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
+Office.onReady((info) => {
+  console.info(`[commands.js::Office.onReady()]`);
+});
 
-Office.onReady();
 
 /**
  * The words in the subject or body that require corresponding color categories to be applied to a new
@@ -26,6 +24,8 @@ Office.onReady();
  * @param {Office.AddinCommands.Event} event The OnNewMessageCompose or OnNewAppointmentOrganizer event object.
  */
 function onItemComposeHandler(event) {
+  console.info(`[commands.js::onItemComposeHandler()]`);
+
   Office.context.mailbox.masterCategories.getAsync(
     { asyncContext: event },
     (asyncResult) => {
@@ -74,6 +74,8 @@ function onItemComposeHandler(event) {
  * @param {Office.AddinCommands.Event} event The OnMessageSend or OnAppointmentSend event object.
  */
 function onItemSendHandler(event) {
+  console.info(`[commands.js::onItemSendHandler()]`);
+
   Office.context.mailbox.item.subject.getAsync(
     { asyncContext: event },
     (asyncResult) => {
