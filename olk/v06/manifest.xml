@@ -6,7 +6,7 @@
     xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
     xsi:type="MailApp">
   <Id>a086f25e-13b8-4b48-80e1-74d94f04c35c</Id>
-  <Version>1.0.0.6</Version>
+  <Version>1.0.0.0</Version>
   <ProviderName>Jupyton</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName           DefaultValue="Redact Add-ins - Demo - v06"/>
@@ -25,7 +25,7 @@
       <Set Name="Mailbox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
-    <FormSettings>
+  <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
         <SourceLocation DefaultValue="https://jupyton.github.io/did/olk/v06/taskpane.html"/>
@@ -67,56 +67,24 @@
             </ExtensionPoint>
 
 
-
             <ExtensionPoint xsi:type="MessageComposeCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgComposeGroup">
-                  <Label resid="CategoriesGroupLabel" />
-                  <Control xsi:type="Button" id="msgComposeOpenPaneButton">
-                    <Label resid="paneComposeButtonLabel" />
-                    <Supertip>
-                      <Title resid="paneComposeSuperTipTitle"/>
-                      <Description resid="paneComposeSuperTipDescription"/>
-                    </Supertip>
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="msgComposeButton">
+                    <Label resid="paneComposeButtonLabel"/>
                     <Icon>
-                      <bt:Image size="16" resid="Icon.16x16" />
-                      <bt:Image size="32" resid="Icon.32x32" />
-                      <bt:Image size="80" resid="Icon.80x80" />
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
                     </Icon>
                     <Action xsi:type="ShowTaskpane">
-                      <SourceLocation resid="Taskpane.Url" />
+                      <SourceLocation resid="Taskpane.Url"/>
                     </Action>
                   </Control>
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
-
-
-
-            <ExtensionPoint xsi:type="MessageReadCommandSurface">
-              <OfficeTab id="TabDefault">
-                <Group id="msgReadGroup">
-                  <Label resid="CategoriesGroupLabel" />
-                  <Control xsi:type="Button" id="msgReadOpenPaneButton">
-                    <Label resid="paneReadButtonLabel" />
-                    <Supertip>
-                      <Title resid="paneReadSuperTipTitle"/>
-                      <Description resid="paneReadSuperTipDescription"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16" />
-                      <bt:Image size="32" resid="Icon.32x32" />
-                      <bt:Image size="80" resid="Icon.80x80" />
-                    </Icon>
-                    <Action xsi:type="ShowTaskpane">
-                      <SourceLocation resid="Taskpane.Url" />
-                    </Action>
-                  </Control>
-                </Group>
-              </OfficeTab>
-            </ExtensionPoint>
-
-
 
 
 
@@ -136,15 +104,27 @@
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="CategoriesGroupLabel" DefaultValue="[ARG] Outlook Add-ins - Redact Demo - v06"/>
+
           
-          <bt:String id="paneReadButtonLabel" DefaultValue="Redact R"/>
-          <bt:String id="paneComposeButtonLabel" DefaultValue="Redact C"/>
+          <bt:String id="paneReadButtonLabel" DefaultValue="Redact"/>
+          <bt:String id="paneComposeButtonLabel" DefaultValue="Redact"/>
+
+
+          <bt:String id="SelectButtonLabel" DefaultValue="[ARG] Select categories"/>
+
+          <bt:String id="groupLabel" DefaultValue="Hidden Group"/>
+          <bt:String id="redactLabel" DefaultValue="Redact"/>
+          <bt:String id="redactTitle" DefaultValue="Redact Email"/>
         </bt:ShortStrings>
         <bt:LongStrings>
           <bt:String id="paneReadSuperTipTitle" DefaultValue="Redact"/>
           <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens the Redact task pane."/>
           <bt:String id="paneComposeSuperTipTitle" DefaultValue="Redact"/>
           <bt:String id="paneComposeSuperTipDescription" DefaultValue="Opens the Redact task pane."/>
+
+
+          <bt:String id="SelectButtonDescription" DefaultValue="[ARG] Opens a task pane to select and apply categories to an email or appointment."/>
+          <bt:String id="redactDescription" DefaultValue="Launch redaction process."/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
