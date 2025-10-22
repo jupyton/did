@@ -1,3 +1,5 @@
+// Version 001
+
 Office.onReady((info) => {
   console.info(`[commands.js::Office.onReady()]`);
 });
