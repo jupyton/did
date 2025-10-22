@@ -9,8 +9,8 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Jupyton</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName           DefaultValue="Simple Add-ins 001 - Check Platform"/>
-  <Description           DefaultValue="Simple Add-ins 001 - Check Platform Compatibility"/>
+  <DisplayName           DefaultValue="Simple Add-ins v001.0003 - Check Platform"/>
+  <Description           DefaultValue="Simple Add-ins v001.0003 - Check Platform Compatibility"/>
   <IconUrl               DefaultValue="https://jupyton.github.io/did/olksimple/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://jupyton.github.io/did/olksimple/assets/icon-128.png"/>
   <SupportUrl            DefaultValue="https://www.jupyton.com/help"/>

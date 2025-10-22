@@ -1,4 +1,4 @@
-const VERSION = 'v002';
+const VERSION = 'v001.0003';
 
 
 Office.onReady((info) => {
@@ -46,7 +46,7 @@ function redactMessageHandler() {
 
 
 function onMessageSendHandler(event) {
-  console.info(`[onMessageSendHandler()] Received OnMessageSend event!`);
+  console.info(`[onMessageSendHandler(0000)] Received OnMessageSend event!`);
 
 
 
@@ -106,6 +106,6 @@ function onMessageSendHandler(event) {
 
 
 
-  console.info("[Commands.js::onMessageSendHandler(100)] Exit!");
+  console.info("[onMessageSendHandler(9999)] Exit!");
 }
 
