@@ -75,7 +75,7 @@
         </bt:Images>
         <bt:Urls>
           <bt:Url id="JSRuntime.Url" DefaultValue="https://jupyton.github.io/did/olksimple/commands.js"/>
-          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://jupyton.github.io/olksimple/olk/commands.html"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://jupyton.github.io/did/olksimple/commands.html"/>
           <bt:Url id="Taskpane.Url" DefaultValue="https://jupyton.github.io/did/olksimple/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
