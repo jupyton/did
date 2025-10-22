@@ -89,8 +89,7 @@ function onMessageSendHandler(event) {
     Promise.all([promiseSetBody]).then(() => {
       console.info("[ARG] successfully copied SUBJECT to BODY:");
       event.completed({
-        allowEvent: false,
-        errorMessage: "Everything OK, but still don't let you send"
+        allowEvent: true,
       });
     }).catch((error) => {
       console.error("[ARG] An error occurred while setting item data:", error);
