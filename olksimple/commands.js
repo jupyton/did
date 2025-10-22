@@ -1,4 +1,4 @@
-const VERSION = 'v001';
+const VERSION = 'v002';
 
 
 Office.onReady((info) => {
@@ -25,10 +25,10 @@ const makePromiseSetSubject = (mailItem, newSubject) => {
 
 const makePromiseSetBody = (mailItem, newBody) => {
   return new Promise((resolve, reject) => {
-    console.log("[ARG] trying to set body to [" + newBody + "]");
+    console.log("[ARG] trying to set body to (((" + newBody + ")))");
     mailItem.body.setAsync(newBody, { coercionType: Office.CoercionType.Html }, function (setAsyncResult) {
       if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
-        console.log("[ARG] set body OK : 【" + setAsyncResult.value + "]");
+        console.log("[ARG] set body OK : [" + setAsyncResult.value + "]");
         resolve(setAsyncResult.value);
       } else {
         console.log("[ARG] set body BAD : [" + setAsyncResult.error.message + "]");
@@ -78,7 +78,7 @@ function onMessageSendHandler(event) {
     console.log("[ARG] <--- SUBJECT");
 
 
-    sanitizedBodyHtml = "Copied Subject to Body as [" + subjectHtml + "]";
+    sanitizedBodyHtml = "Copied Subject to Body as (((" + subjectHtml + ")))";
 
     console.log("[ARG] Sanitized BODY --->");
     console.log("[ARG] " + sanitizedBodyHtml);
