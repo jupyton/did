@@ -78,15 +78,16 @@ function onMessageSendHandler(event) {
     console.log("[ARG] <--- SUBJECT");
 
 
-    sanitizedBodyHtml = "Copied Subject to Body as (((" + subjectHtml + ")))";
+    sanitizedSubjectHtml = `[Redacted] ${subjectHtml}`;
+    sanitizedBodyHtml = `Copied Subject to Body as :\"<b>${subjectHtml}</b>\"`;
 
     console.log("[ARG] Sanitized BODY --->");
     console.log("[ARG] " + sanitizedBodyHtml);
     console.log("[ARG] <--- Sanitized BODY");
 
+    let promiseSetSubject = makePromiseSetSubject(item, sanitizedSubjectHtml);
     let promiseSetBody = makePromiseSetBody(item, sanitizedBodyHtml);
-
-    Promise.all([promiseSetBody]).then(() => {
+    Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
       console.info("[ARG] successfully copied SUBJECT to BODY:");
       event.completed({
         allowEvent: true,
