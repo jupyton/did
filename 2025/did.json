@@ -1,27 +1,27 @@
 {
-    "id": "did:web:jupyton.github.io:did:2025",
-    "verificationMethod": [
-        {
-            "type": "Bls12381G2Key2020",
-            "id": "did:web:jupyton.github.io:did:2025#keys-1",
-            "controller": "did:web:jupyton.github.io:did:2025",
-            "publicKeyBase58": "26tEBbrq1Tun54DKwnLvw22VWeknFJMgBPR8myBV8UdiDzNpbZiq2dcPEXWb4mxkQxyjR43JqNMibNsiSxuWd7nKEHyBGdvY2nBsS613JbAYwiAGSva5aEsVTx39q2xMtjFf"
-        }
-    ],
-    "@context": [
-        "https://www.w3.org/ns/did/v1",
-        "https://w3id.org/security/suites/bls12381-2020/v1"
-    ],
-    "authentication": [
-        "did:web:jupyton.github.io:did:2025#keys-1"
-    ],
-    "assertionMethod": [
-        "did:web:jupyton.github.io:did:2025#keys-1"
-    ],
-    "capabilityInvocation": [
-        "did:web:jupyton.github.io:did:2025#keys-1"
-    ],
-    "capabilityDelegation": [
-        "did:web:jupyton.github.io:did:2025#keys-1"
-    ]
+  "id": "did:web:jupyton.github.io:did:2025:",
+  "verificationMethod": [
+    {
+      "type": "Multikey",
+      "id": "did:web:jupyton.github.io:did:2025:#keys-1",
+      "controller": "did:web:jupyton.github.io:did:2025:",
+      "publicKeyMultibase": "zDnaewLcCT6pf96YoysYwsddKehvhTaJhepVkun64u3mV4Gvt"
+    }
+  ],
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/multikey/v1"
+  ],
+  "authentication": [
+    "did:web:jupyton.github.io:did:2025:#keys-1"
+  ],
+  "assertionMethod": [
+    "did:web:jupyton.github.io:did:2025:#keys-1"
+  ],
+  "capabilityInvocation": [
+    "did:web:jupyton.github.io:did:2025:#keys-1"
+  ],
+  "capabilityDelegation": [
+    "did:web:jupyton.github.io:did:2025:#keys-1"
+  ]
 }
