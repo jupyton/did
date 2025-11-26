@@ -1,3 +1,71 @@
 {
-
+  "version": "https://schema.openattestation.com/2.0/schema.json",
+  "data": {
+    "$template": {
+      "name": "33e544f0-b14a-4578-a4a2-5efc56cbfe7f:string:INVOICE",
+      "type": "67df2f24-2f9d-489d-8fbb-70674bb83bfd:string:EMBEDDED_RENDERER",
+      "url": "0107b066-abab-446a-b3a7-97b056ee0de7:string:https://generic-templates.tradetrust.io"
+    },
+    "issuers": [
+      {
+        "name": "c5d6aebb-168e-41f0-b210-5ce8d03aedac:string:Demo Issuer",
+        "documentStore": "6649c003-a727-4b4f-a34e-9f3ee214dab7:string:0x99431aEC0c860Ac5f00Cd7b6B48B6269AdDD0817",
+        "identityProof": {
+          "type": "c2854eb7-14c0-42e5-9c9a-5ac525d79478:string:DNS-TXT",
+          "location": "4b7f294d-b117-4787-88ee-5e7ea7dd4e32:string:uni1ds.sandbox158.run"
+        }
+      }
+    ],
+    "type": [
+      "224bed61-7a4c-4673-bf72-ef0e7bdb9946:string:Invoice"
+    ],
+    "billFromName": "1f2a7e22-7462-4299-bcce-0e110cc68f6f:string:ABC Exports Pvt. Ltd.",
+    "billFromStreetAddress": "7939920f-3c6a-4413-aada-97773b5c9b2a:string:12/F, Industrial Plaza, Near MIDC",
+    "billFromCity": "a9f08950-94a8-4157-b8ad-f3235b27f121:string:Navi Mumbai",
+    "billFromPostalCode": "fb5cbb72-9c3e-4fc2-a8e7-d5c01575d908:string:400703",
+    "billFromPhoneNumber": "af3d2032-0f88-4f25-9efe-5965f1acc255:string:+91-22-4455-9988",
+    "billToName": "4393d67e-ad36-4180-b229-66d5dedcee31:string:David Thomson",
+    "billToEmail": "08b6bf75-ec39-4056-80bf-9b7045224224:string:david.thomson@example.co.uk",
+    "billToCompanyName": "63d4c337-87e4-47bf-b5e1-368638a7793a:string:XYZ Foods Ltd.",
+    "billToCompanyStreetAddress": "3f06002b-8cd1-4765-9327-80a33c2fc020:string:Unit 17, Royal Wharf, Docklands Industrial Area",
+    "billToCompanyCity": "9aec7487-2c43-44da-9d28-14beba5be091:string:London",
+    "billToCompanyPostalCode": "1474202f-c873-4300-be03-c1af6e2750d4:string:E16 2AA",
+    "billToCompanyPhoneNumber": "be92755e-ae08-44cc-a085-06a537b29fdf:string:+44-20-8899-4455",
+    "billableItems": [
+      {
+        "billableItemsDescription": "0ce3216a-cd10-40e6-bd55-44bde3e7e7e5:string:Organic Basmati Rice (20kg Bags)",
+        "billableItemsQuantity": "0211b61b-2713-473c-86c5-8af38943a7ad:string:100",
+        "billableItemsUnitPrice": "2e404600-ccab-48e4-a9ef-18793a29a953:string:125",
+        "billableItemsAmount": "ad4d287e-98e4-40ab-8f30-0606f0ea18b7:string:12500"
+      },
+      {
+        "billableItemsDescription": "a3a56251-6572-4cd0-ba6a-a9ddc1115196:string:Vacuum-Packed Almonds (10kg)",
+        "billableItemsQuantity": "0193652e-34eb-4c9c-b0f8-2908c4ed4981:string:50",
+        "billableItemsUnitPrice": "6c2b9814-cdb8-4a6a-9bae-27a3c0a1e81f:string:80",
+        "billableItemsAmount": "4cdad540-6893-4e4d-a6cd-57b0fce1c69d:string:4000"
+      }
+    ],
+    "id": "bf2a2ae9-f485-4db2-b63c-b0dcfcb7ee4f:string:INV-20250604-001",
+    "invoiceId": "e98fea63-7351-4cce-8bc6-f873865e2e3e:string:INV-20250604-001",
+    "invoiceName": "b583af9c-c18f-4c13-acf9-37b7928d3398:string:Export of Organic Basmati Rice",
+    "date": "304fd09f-cc30-4b95-b204-399f713f10e4:string:2025-06-04",
+    "customerId": "958b46ed-de02-45ce-935a-563bc59a4c37:string:CUST-UK-55678",
+    "terms": "6e6355bc-b25e-4074-aa8f-767521e72370:string:Net 30 Days",
+    "subtotal": "e2652476-4327-458f-93b0-d2927b599bf5:string:$16,500.00",
+    "tax": "94bb759c-926f-4060-ad93-837a4b034a23:string:5%",
+    "taxTotal": "a0a51b8a-84aa-4734-a646-63094a148356:string:$825.00",
+    "total": "74e0d7ae-ee37-4a84-b569-140d808111c8:string:$17,325.00",
+    "links": {
+      "self": {
+        "href": "c30d8909-a561-42d7-9510-1b5bc49f660c:string:https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fonline-certs%2Ftt-vc%2Ftt-vc-dnstxt-001.json%22%2C%22redirect%22%3A%22https%3A%2F%2Fdev.tradetrust.io%2F%22%2C%22chainId%22%3A%2211155111%22%7D%7D"
+      }
+    },
+    "validFrom": "0093c529-83c2-4a4a-a1c7-d703611b4118:string:2025-08-08T12:19:52Z"
+  },
+  "signature": {
+    "type": "SHA3MerkleProof",
+    "targetHash": "4320bf0e99f5c884b9d847063a502688e8c3d2f4cdc81e7b0d1c79f5474cd642",
+    "proof": [],
+    "merkleRoot": "4320bf0e99f5c884b9d847063a502688e8c3d2f4cdc81e7b0d1c79f5474cd642"
+  }
 }
