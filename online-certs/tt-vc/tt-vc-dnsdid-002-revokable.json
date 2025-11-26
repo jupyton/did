@@ -1,0 +1,85 @@
+{
+  "version": "https://schema.openattestation.com/2.0/schema.json",
+  "data": {
+    "$template": {
+      "name": "95ab0447-0a71-483e-af95-2b38eea8f227:string:INVOICE",
+      "type": "d0688220-2dce-40e0-9bee-7188cbf20bff:string:EMBEDDED_RENDERER",
+      "url": "aa92993f-984e-43a0-9b37-5832f3e317eb:string:https://generic-templates.tradetrust.io"
+    },
+    "issuers": [
+      {
+        "id": "f4f90eb3-f65b-4578-8b1a-6f325f7d104a:string:did:ethr:0x6910A940414F72220148775c285b92c0E65ee8B8",
+        "name": "21541648-67d0-4899-bba1-9d2ace8c7f0a:string:Demo Issuer",
+        "revocation": {
+          "type": "39d25c9e-39a4-486a-ad32-0c3e6ab86309:string:REVOCATION_STORE",
+          "location": "e639a9fe-9372-4a79-971a-220c7d20c6cf:string:0x99431aEC0c860Ac5f00Cd7b6B48B6269AdDD0817"
+        },
+        "identityProof": {
+          "type": "5f0b7103-22a1-42fc-aaf3-d2767d4e8c61:string:DNS-DID",
+          "location": "8b178fc0-7735-48e2-84e9-2d586e6d76e9:string:unir1did.sandbox158.run",
+          "key": "a4cbf2a0-2e77-4bfb-998a-dd18d9798530:string:did:ethr:0x6910A940414F72220148775c285b92c0E65ee8B8#controller"
+        }
+      }
+    ],
+    "type": [
+      "8e18b6b6-573c-4304-be3c-84d824292b09:string:Invoice"
+    ],
+    "billFromName": "05b10bce-26f9-4480-a81b-cc0b82ca5508:string:ABC Exports Pvt. Ltd.",
+    "billFromStreetAddress": "7035c40f-a85f-4611-b74f-1953de833047:string:12/F, Industrial Plaza, Near MIDC",
+    "billFromCity": "a2bf7ddc-61e9-4408-be35-c727715adde3:string:Navi Mumbai",
+    "billFromPostalCode": "74535a46-cce7-472e-9e4e-77825f40103b:string:400703",
+    "billFromPhoneNumber": "df586160-bda1-4139-8b66-e1339bbcfe6b:string:+91-22-4455-9988",
+    "billToName": "047aebf2-e932-45dc-86b0-a88978837ed7:string:David Thomson",
+    "billToEmail": "4438324e-eacb-45f1-a8e5-e144fdcdc039:string:david.thomson@example.co.uk",
+    "billToCompanyName": "d23b9561-9191-49c2-9fda-5636014b915a:string:XYZ Foods Ltd.",
+    "billToCompanyStreetAddress": "c33645ec-f057-441d-a14c-3b4a6d4f9510:string:Unit 17, Royal Wharf, Docklands Industrial Area",
+    "billToCompanyCity": "67d117bb-3332-4e23-aaf4-caba30d6eea3:string:London",
+    "billToCompanyPostalCode": "0e7ad40d-109c-4f79-8c77-95e8930fbf68:string:E16 2AA",
+    "billToCompanyPhoneNumber": "80cb8614-b70b-4517-a99c-7a4140e39c7c:string:+44-20-8899-4455",
+    "billableItems": [
+      {
+        "billableItemsDescription": "ff8845c5-486e-4897-b015-8dc5b65bb164:string:Organic Basmati Rice (20kg Bags)",
+        "billableItemsQuantity": "66ef4be1-c93e-4ee6-b7ca-7337a47b2f0d:string:100",
+        "billableItemsUnitPrice": "4b7d3801-8d13-4cc6-834a-cb24869989a3:string:125",
+        "billableItemsAmount": "78dd88ce-f0c7-474c-8915-c8aa75ba1339:string:12500"
+      },
+      {
+        "billableItemsDescription": "c7f6c11b-114f-45c4-bec3-1a2e43a3c231:string:Vacuum-Packed Almonds (10kg)",
+        "billableItemsQuantity": "731355fd-7031-4bda-91ed-d259275c81a1:string:50",
+        "billableItemsUnitPrice": "818ec23a-315f-4ac5-b45d-177440401580:string:80",
+        "billableItemsAmount": "02773489-0354-4a1b-b744-b94603dca3f7:string:4000"
+      }
+    ],
+    "id": "d26a43b5-f4f0-401b-965a-1ec7902dce2d:string:INV-20250604-001",
+    "invoiceId": "d07e72a6-4931-40b4-8b94-82f87dbf87d1:string:INV-20250604-001",
+    "invoiceName": "4a98873c-1505-4909-acae-482f76fbaafe:string:Export of Organic Basmati Rice",
+    "date": "a4c435c0-bcc2-490b-843e-fa2927b7ec1c:string:2025-06-04",
+    "customerId": "13702aa7-42b6-434f-8e07-a8eca77765f7:string:CUST-UK-55678",
+    "terms": "36b69616-bd58-4ca8-948d-cbf106195437:string:Net 30 Days",
+    "subtotal": "66ea1912-c9ef-4d6d-a62e-c71ec650fdfb:string:$16,500.00",
+    "tax": "f8d474e4-1d0f-4537-9067-6946200ac81f:string:5%",
+    "taxTotal": "3cb60915-64a6-4245-b069-515c43bc360f:string:$825.00",
+    "total": "41fac0a2-19cd-410b-b9b2-ea65d8022dcd:string:$17,325.00",
+    "links": {
+      "self": {
+        "href": "b98af55e-2d7f-4b2e-bbc0-276bea72c4df:string:https://actions.tradetrust.io?q=%7B%22type%22%3A%22DOCUMENT%22%2C%22payload%22%3A%7B%22uri%22%3A%22https%3A%2F%2Fjupyton.github.io%2Fdid%2Fonline-certs%2Ftt-vc%2Ftt-vc-dnsdid-002-revokable.json%22%2C%22redirect%22%3A%22https%3A%2F%2Fdev.tradetrust.io%2F%22%2C%22chainId%22%3A%2211155111%22%7D%7D"
+      }
+    },
+    "validFrom": "6511c562-4b61-433a-88fd-3d8d427a28bc:string:2024-04-01T12:19:52Z"
+  },
+  "signature": {
+    "type": "SHA3MerkleProof",
+    "targetHash": "8d80f28b5a387d55c795cfeb3b108ca2e8e0c44db24420c5ba90f4762b6b20ae",
+    "proof": [],
+    "merkleRoot": "8d80f28b5a387d55c795cfeb3b108ca2e8e0c44db24420c5ba90f4762b6b20ae"
+  },
+  "proof": [
+    {
+      "type": "OpenAttestationSignature2018",
+      "created": "2025-11-26T06:51:25.045Z",
+      "proofPurpose": "assertionMethod",
+      "verificationMethod": "did:ethr:0x6910A940414F72220148775c285b92c0E65ee8B8#controller",
+      "signature": "0x8a74737386a10b4ab1555326ce3d9dd76a6cde4f3dc35c42c191a031f908c8134b13bd29ba0c74124e501afeb89c343713fd4a593b0906a1a29359076cc123341b"
+    }
+  ]
+}
