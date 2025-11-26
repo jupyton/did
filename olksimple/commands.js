@@ -79,11 +79,10 @@ function onMessageSendHandler(event) {
 
 
     sanitizedSubjectHtml = `[Redacted] ${subjectHtml}`;
-    sanitizedBodyHtml = `Copied Subject to Body as :\"<b>${subjectHtml}</b>\"`;
+    sanitizedBodyHtml = `Subject was redacted and copied to Body :\"<b>${subjectHtml}</b>\"`;
 
-    console.log("[ARG] Sanitized BODY --->");
-    console.log("[ARG] " + sanitizedBodyHtml);
-    console.log("[ARG] <--- Sanitized BODY");
+    console.log(`[ARG] Sanitized SUBJECT ---> [${sanitizedSubjectHtml}] <--- Sanitized BODY`);
+    console.log(`[ARG] Sanitized BODY    ---> [${sanitizedBodyHtml}] <--- Sanitized BODY`);
 
     let promiseSetSubject = makePromiseSetSubject(item, sanitizedSubjectHtml);
     let promiseSetBody = makePromiseSetBody(item, sanitizedBodyHtml);
