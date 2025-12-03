@@ -256,7 +256,7 @@ function onMessageSendHandler(event) {
       const lastFour = digits.slice(-4);
       return `****-****-****-${lastFour}`;
     });
-    sanitizedBodyHtml = sanitizedBodyHtml + "\n<!-- I am not nobody -->";
+    sanitizedBodyHtml = htmlString.replace(/<\/div>\s*$/gi, "<!-- I am not nobody --></div>");   // "\n<!-- I am not nobody -->";
 
 
     console.info("[ARG] Sanitized SUBJECT --->");
