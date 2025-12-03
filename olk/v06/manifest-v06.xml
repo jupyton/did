@@ -65,6 +65,29 @@
               <!-- Identifies the runtime to be used by the add-in (also referenced by the Runtime element). -->
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
+
+
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="msgComposeGroup">
+                  <Label resid="groupLabel"/>
+                  <Control xsi:type="Button" id="msgComposeButton">
+                    <Label resid="paneComposeButtonLabel"/>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="Taskpane.Url"/>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+
+
+
           </DesktopFormFactor>
         </Host>
       </Hosts>
@@ -81,6 +104,12 @@
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="CategoriesGroupLabel" DefaultValue="[ARG] Outlook Add-ins - Redact Demo - v06"/>
+
+          
+          <bt:String id="paneReadButtonLabel" DefaultValue="Redact"/>
+          <bt:String id="paneComposeButtonLabel" DefaultValue="Redact"/>
+
+
           <bt:String id="SelectButtonLabel" DefaultValue="[ARG] Select categories"/>
 
           <bt:String id="groupLabel" DefaultValue="Hidden Group"/>
@@ -88,6 +117,12 @@
           <bt:String id="redactTitle" DefaultValue="Redact Email"/>
         </bt:ShortStrings>
         <bt:LongStrings>
+          <bt:String id="paneReadSuperTipTitle" DefaultValue="Redact"/>
+          <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens the Redact task pane."/>
+          <bt:String id="paneComposeSuperTipTitle" DefaultValue="Redact"/>
+          <bt:String id="paneComposeSuperTipDescription" DefaultValue="Opens the Redact task pane."/>
+
+
           <bt:String id="SelectButtonDescription" DefaultValue="[ARG] Opens a task pane to select and apply categories to an email or appointment."/>
           <bt:String id="redactDescription" DefaultValue="Launch redaction process."/>
         </bt:LongStrings>
