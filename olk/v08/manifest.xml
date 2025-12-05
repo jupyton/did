@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
+<OfficeApp 
+    xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+    xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
+    xsi:type="MailApp">
   <Id>dac64749-60d7-4579-9036-cb7308b6d444</Id>
+  <!-- Id>e0b62253-c9e0-4f52-8792-97a032236f48</Id -->
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
+  <ProviderName>Jupyton</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Outlook Add-ins - Smart Alerts sample {net 1.15}"/>
-  <Description DefaultValue="Use Outlook Smart Alerts to demo {net 1.15}"/>
-  <IconUrl DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/assets/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/assets/icon-128.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
+  <DisplayName DefaultValue="Redact Add-ins - Demo - v08"/>
+  <Description DefaultValue="Redact Add-ins - Redact PII onSend - v08"/>
+  <IconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://jupyton.github.io/did/olk/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="https://www.jupyton.com/help"/>
   <AppDomains>
-    <AppDomain>https://www.contoso.com</AppDomain>
+    <AppDomain>https://jupyton.github.io</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Mailbox"/>
@@ -116,9 +122,9 @@
       </Hosts>
       <Resources>
         <bt:Images>
-          <bt:Image id="Icon.16x16" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/assets/icon-16.png"/>
-          <bt:Image id="Icon.32x32" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/assets/icon-32.png"/>
-          <bt:Image id="Icon.80x80" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/assets/icon-80.png"/>
+          <bt:Image id="Icon.16x16" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-16.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
           <bt:Url id="JSRuntime.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/src/commands/commands.js"/>
