@@ -1,6 +1,6 @@
 
 Office.onReady((info) => {
-  console.info("[v06] taskpane.html Office.onReady()");
+  console.info("[v08] taskpane.html Office.onReady()");
 });
 
 
