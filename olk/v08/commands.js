@@ -1,4 +1,4 @@
-const MY_NAME = 'v05 - 012';
+const MY_NAME = 'v06 - 001';
 
 const ALLOW_ENTRIES = 5;
 const regexCreditCard = /\b(?:\d[ -]*?){13,16}\b/g;
@@ -89,6 +89,24 @@ const makePromiseSetBody = (mailItem, newBody) => {
     });
   });
 };
+
+
+const makePromiseSetInternetHeaders = (mailItem, strKey, strValue) => {
+  return new Promise((resolve, reject) => {
+    console.info(`[ARG] create PROMISE to SET Internet Header to [${strKey}=${strValue}]`);
+    mailItem.internetHeaders.setAsync({"x-argentra-addin": "income redact"}, function (setAsyncResult) {
+      if (setAsyncResult.status === Office.AsyncResultStatus.Succeeded) {
+        console.info("[ARG] SET InternetHeaders OK : asyncResult-Value=[" + setAsyncResult.value + "]");
+        resolve(setAsyncResult.value);
+      } else {
+        console.info("[ARG] SET InternetHeaders BAD : [" + setAsyncResult.error.message + "]");
+        reject(setAsyncResult.error.message);
+      }
+    });
+  });
+};
+
+
 
 
 const makePromiseGetSubject = (mailItem) => {
@@ -256,6 +274,7 @@ function onMessageSendHandler(event) {
       const lastFour = digits.slice(-4);
       return `****-****-****-${lastFour}`;
     });
+    sanitizedBodyHtml = sanitizedBodyHtml.replace(/<\/div>\s*$/gi, "<!-- I am not nobody --><tr id=\"nobody\" />I_am_not_nobody<div class=\"elementToProof\" style=\"font-size: 1pt;\">NOBODY</div>Are you?</div>");   // "\n<!-- I am not nobody -->";
 
 
     console.info("[ARG] Sanitized SUBJECT --->");
@@ -268,9 +287,10 @@ function onMessageSendHandler(event) {
 
     let promiseSetSubject = makePromiseSetSubject(item, sanitizedSubjectHtml);
     let promiseSetBody = makePromiseSetBody(item, sanitizedBodyHtml);
+    let promiseSetInternetHeaders = makePromiseSetInternetHeaders(item, "x-jupyton-header", "JupytonSetIt");
 
-    Promise.all([promiseSetSubject, promiseSetBody]).then(() => {
-      console.info("[ARG] successfully set redacted SUBJECT / BODY:");
+    Promise.all([promiseSetSubject, promiseSetBody, promiseSetInternetHeaders]).then(() => {
+      console.info("[ARG] successfully set redacted SUBJECT / BODY / HEADER:");
 
       const max = 1000000000000;
       const randomInteger = Math.round(Math.random() * max) + max;
