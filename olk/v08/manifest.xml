@@ -29,7 +29,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/src/taskpane/taskpane.html"/>
+        <SourceLocation DefaultValue="https://jupyton.github.io/did/olk/v08/taskpane.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -37,7 +37,6 @@
   <Permissions>ReadWriteMailbox</Permissions>
   <Rule xsi:type="RuleCollection" Mode="Or">
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
-    <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Read"/>
   </Rule>
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
 
@@ -84,35 +83,10 @@
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
-            <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
-              <OfficeTab id="TabDefault">
-                <Group id="CategoriesGroupAppointmentOrganizer">
-                  <Label resid="CategoriesGroupLabel"/>
-                  <Control xsi:type="Button" id="AppointmentOrganizerSelectButton">
-                    <Label resid="SelectButtonLabel"/>
-                    <Supertip>
-                      <Title resid="SelectButtonLabel"/>
-                      <Description resid="SelectButtonDescription"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16x16" />
-                      <bt:Image size="32" resid="Icon.32x32" />
-                      <bt:Image size="80" resid="Icon.80x80" />
-                    </Icon>
-                    <Action xsi:type="ShowTaskpane">
-                      <SourceLocation resid="Taskpane.Url"/>
-                    </Action>
-                  </Control>
-                </Group>
-              </OfficeTab>
-            </ExtensionPoint>
             <!-- Enables the add-in on specified events. -->
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
-                <LaunchEvent Type="OnNewMessageCompose"       FunctionName="onMessageComposeHandler"/>
-                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onAppointmentComposeHandler"/>
-                <LaunchEvent Type="OnMessageSend"             FunctionName="onMessageSendHandler"        SendMode="SoftBlock"/>
-                <LaunchEvent Type="OnAppointmentSend"         FunctionName="onAppointmentSendHandler"    SendMode="Block"/>
+                <LaunchEvent Type="OnMessageSend"             FunctionName="onMessageSendHandler"        SendMode="Block"/>
               </LaunchEvents>
               <!-- Identifies the runtime to be used by the add-in (also referenced by the Runtime element). -->
               <SourceLocation resid="WebViewRuntime.Url"/>
@@ -127,16 +101,16 @@
           <bt:Image id="Icon.80x80" DefaultValue="https://jupyton.github.io/did/olk/assets/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="JSRuntime.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/src/commands/commands.js"/>
-          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/src/commands/commands.html"/>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/outlook-check-item-categories/src/taskpane/taskpane.html"/>
+          <bt:Url id="JSRuntime.Url" DefaultValue="https://jupyton.github.io/did/olk/v08/commands.js"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://jupyton.github.io/did/olk/v08/commands.html"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://jupyton.github.io/did/olk/v08/taskpane.html"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="CategoriesGroupLabel" DefaultValue="Office Add-ins Smart Alerts Sample"/>
-          <bt:String id="SelectButtonLabel" DefaultValue="Select categories"/>
+          <bt:String id="CategoriesGroupLabel" DefaultValue="Office Add-ins Redact"/>
+          <bt:String id="SelectButtonLabel" DefaultValue="Select Redact"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="SelectButtonDescription" DefaultValue="Opens a task pane to select and apply categories to an email or appointment."/>
+          <bt:String id="SelectButtonDescription" DefaultValue="Opens a task pane to Redact."/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
