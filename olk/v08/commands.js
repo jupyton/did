@@ -377,6 +377,6 @@ function onMessageSendHandler(event) {
 
 
 
-  console.info("[v04] Commands.js::onMessageSendHandler(100)] Exit!");
+  console.info(`[${MY_NAME}] Commands.js::onMessageSendHandler(100)] Exit!`);
 }
 
